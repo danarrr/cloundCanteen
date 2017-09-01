@@ -1,0 +1,165 @@
+<!--pages/user/myComment/commentDetail/commentDetail.wxml-->
+<import src="/component/tipToast/tipToast.wxml" />
+<template is="tipToast" data="{{tipToastText:tipToastText,tipToastAnimationData:tipToastAnimationData}}"></template>
+<view class="page-container">
+  <!-- 食堂 -->
+  <view class="eval-type-title">
+    <image src="/image/mine/icon-titleStar.png"></image>
+    <view>食堂评价</view>
+  </view>
+  <view class="title">{{data.canteen.name}}</view>
+  <!-- 遍历评价项 -->
+  <block wx:for="{{data.canteen.evalOptions}}" wx:for-item="option" wx:for-index="optionIndex">
+    <view class="score">
+      <view class="evaluate-container">
+        <text>{{option.name}}</text>
+        <!-- 遍历星星 -->
+        <block wx:for="{{option.stars}}" wx:for-item="star" wx:for-index="starIndex">
+          <image src="{{option.score>star?fullStar:emptyStar}}" data-index="{{starIndex}}" bindtap="clickStar" data-belong="canteen" data-option-index="{{optionIndex}}"></image>
+        </block>
+      </view>
+    </view>
+  </block>
+  <!-- 饭堂留言 -->
+  <view wx:if="{{dataType==0}}" class="to-words">
+    <navigator url="/pages/user/myComment/commentTextarea/commentTextarea?consumeId={{consumeId}}&dataType={{dataType}}&belong=canteen">去评价</navigator>
+    <image src="/image/icon-arrow.png" style="width:14rpx;height:26rpx;"></image>
+  </view>
+  <view wx:if="{{dataType==1}}" class="words">
+    <view data-belong="canteen">{{data.canteen.words}}</view>
+    <text>{{data.canteen.curWordNum}}/50</text>
+  </view>
+
+
+  <!-- 窗口 -->
+  <view class="eval-type-title">
+    <image src="/image/mine/icon-titleStar.png"></image>
+    <view>窗口评价</view>
+  </view>
+  <!-- 遍历窗口 -->
+  <block wx:for="{{data.poses}}" wx:for-item="pos" wx:for-index="posIndex">
+    <view class="title">{{pos.name}}</view>
+    <!-- 遍历评价项 -->
+    <block wx:for="{{pos.evalOptions}}" wx:for-item="option" wx:for-index="optionIndex">
+      <view class="score">
+        <view class="evaluate-container">
+          <text>{{option.name}}</text>
+          <!-- 遍历星星 -->
+          <block wx:for="{{option.stars}}" wx:for-item="star" wx:for-index="starIndex">
+            <image src="{{option.score>star?fullStar:emptyStar}}" data-index="{{starIndex}}" bindtap="clickStar" data-belong="pos" data-pos-index="{{posIndex}}" data-option-index="{{optionIndex}}"></image>
+          </block>
+        </view>
+      </view>
+    </block>
+    <!-- 窗口留言 -->
+    <view wx:if="{{dataType==0}}" class="to-words">
+      <navigator url="/pages/user/myComment/commentTextarea/commentTextarea?belong=pos&consumeId={{consumeId}}&dataType={{dataType}}&posIdx={{posIndex}}">去评价</navigator>
+      <image src="/image/icon-arrow.png" style="width:14rpx;height:26rpx;"></image>
+    </view>
+    <view wx:if="{{dataType==1}}" class="words">
+      <view data-belong="pos">{{pos.words}}</view>
+      <text>{{pos.curWordNum}}/50</text>
+    </view>
+  </block>
+
+
+  <!-- 菜品 -->
+  <view class="eval-type-title">
+    <image src="/image/mine/icon-titleStar.png"></image>
+    <view>菜品评价</view>
+  </view>
+  <!-- 遍历菜品 -->
+  <block wx:for="{{data.dishes}}" wx:for-item="dish" wx:for-index="dishIndex" >
+    <!-- 普通菜品 -->
+    <view wx:if="{{dish.dishseted==0}}">
+      <view class="dish-img-container {{dishIndex==0?'first-dish-img-container':''}}">
+        <image class="dish-img" src="{{dish.pic}}">←←←菜品图片</image>
+      </view>
+      <view class="title dish-title">{{dish.name}}</view>
+      <!-- 遍历评价项 -->
+      <block wx:for="{{dish.evalOptions}}" wx:for-item="option" wx:for-index="optionIndex">
+        <view class="score">
+          <view class="evaluate-container">
+            <text>{{option.name}}</text>
+            <!-- 遍历星星 -->
+            <block wx:for="{{option.stars}}" wx:for-item="star" wx:for-index="starIndex">
+              <image src="{{option.score>star?fullStar:emptyStar}}" data-index="{{starIndex}}" bindtap="clickStar" data-belong="dish" data-dish-index="{{dishIndex}}" data-option-index="{{optionIndex}}"></image>
+            </block>
+          </view>
+        </view>
+      </block>
+      <!-- 菜品留言 -->
+      <view wx:if="{{dataType==0}}" class="to-words {{dishIndex+1==data.dishes.length?'last-words':''}}">
+        <navigator url="/pages/user/myComment/commentTextarea/commentTextarea?belong=dish&consumeId={{consumeId}}&dataType={{dataType}}&dishIdx={{dishIndex}}">去评价</navigator>
+        <image src="/image/icon-arrow.png" style="width:14rpx;height:26rpx;"></image>
+      </view>
+      <view wx:if="{{dataType==1}}" class="words {{dishIndex+1==data.dishes.length?'last-words':''}}">
+        <view data-belong="dish">{{dish.words}}</view>
+        <text>{{dish.curWordNum}}/50</text>
+      </view>
+    </view>
+    <!-- 套餐 -->
+    <view wx:if="{{dish.dishseted==1}}">
+      <view class="dish-img-container">
+        <image class="dish-img" src="{{dish.pic}}">←←←套餐图片</image>
+      </view>
+      <view class="dishset-title-container">
+        <view class="title dish-title dishset-title" bindtap="hideDishsetList">
+          <text>{{dish.name}}</text>
+          <image class="icon-push-arrow" src="/image/mine/icon-pushArrow.png"></image>
+        </view>
+      </view>
+      <!-- 遍历套餐明细（子菜品集合） -->
+      <block wx:for="{{dish.dishsetlist}}" wx:for-item="item" wx:for-index="childDishIndex">
+        <view class="child-dish-title-container">
+          <view wx:if="{{childDishIndex==0}}" class="title child-dish-title">{{item.name}}</view>
+          <view wx:else class="title child-dish-title notfirst-child-dish-title">{{item.name}}</view>
+        </view>
+        <!-- 遍历子菜品评价项 -->
+        <block wx:for="{{item.evalOptions}}" wx:for-item="option" wx:for-index="optionIndex">
+          <view class="score">
+            <view class="evaluate-container">
+              <text>{{option.name}}</text>
+              <!-- 遍历星星 -->
+              <block wx:for="{{option.stars}}" wx:for-item="star" wx:for-index="starIndex">
+                <image src="{{option.score>star?fullStar:emptyStar}}" data-index="{{starIndex}}" bindtap="clickStar" data-belong="dish" data-dish-index="{{dishIndex}}" data-child-dish-index="{{childDishIndex}}" data-option-index="{{optionIndex}}"></image>
+              </block>
+            </view>
+          </view>
+        </block>
+      </block>
+      <!-- 套餐留言 -->
+      <view wx:if="{{dataType==0}}" class="to-words {{dishIndex+1==data.dishes.length?'last-words':''}}">
+        <navigator url="/pages/user/myComment/commentTextarea/commentTextarea?belong=dish&consumeId={{consumeId}}&dataType={{dataType}}&dishIdx={{dishIndex}}">去评价</navigator>
+        <image src="/image/icon-arrow.png" style="width:14rpx;height:26rpx;"></image>
+      </view>
+      <view wx:if="{{dataType==1}}" class="words {{dishIndex+1==data.dishes.length?'last-words':''}}">
+        <view data-belong="dish">{{dish.words}}</view>
+        <text>{{dish.curWordNum}}/50</text>
+      </view>
+    </view>
+  </block>
+
+
+  <!-- 是否匿名评价 -->
+  <view class="anonymous">
+    <!-- 未评价 -->
+    <view wx:if="{{dataType==0}}">
+      <image wx:if="{{data.anonymous==1}}" src="/image/mine/icon-checkboxTrue.png" bindtap="changeAnonymous"></image>
+      <image wx:elif="{{data.anonymous==0}}" src="/image/mine/icon-checkboxFalse.png" bindtap="changeAnonymous"></image>
+      <text bindtap="changeAnonymous">匿名评价</text>
+    </view>
+    <!-- 已评价 -->
+    <view wx:elif="{{dataType==1}}">
+      <text>{{(data.anonymous==1)?'已匿名评价':''}}</text>
+    </view>
+  </view>
+
+
+  <!-- 提交按钮 -->
+  <view class="submit">
+    <view wx:if="{{dataType==1}}" class="submit-button" bindtap="comeback">返回</view>
+    <view wx:elif="{{dataType==0}}" class="submit-button" bindtap="submitEvaluate">提交评价</view>
+  </view>
+
+</view>

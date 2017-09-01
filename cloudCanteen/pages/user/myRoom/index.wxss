@@ -1,0 +1,109 @@
+/* index.wxss */
+
+@import "/component/tipToast/tipToast.wxss";
+.nav {
+  width: 100%;
+  border-bottom: 1rpx solid #d9d9d9;
+}
+
+.titles {
+  box-sizing: border-box;
+  height: 96rpx;
+  width: 750rpx;
+  background: #fff;
+  display: flex;
+  justify-content: space-around;
+  flex-grow: 1;
+  /*ttttt  */
+  padding-top: 17rpx;
+  padding-bottom: 17rpx;
+  /* clip:  */
+}
+
+.titles > .title:not(:last-of-type) {
+  /*除最后一个title以外的标签添加右边框*/
+  border-right: 1px solid #d9d9d9;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.nav-indicator {
+  width: 33.3%;
+  height: 2px;
+  background: #1bb14f;
+}
+
+.title-selected {
+  border-bottom: 2px solid #1bb14f;
+  color: #393939;
+  /* outline: 2px solid orange;
+  outline-offset: 17rpx; */
+}
+
+.page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: #e9e8ed solid 1px;
+  overflow-y: auto;
+  background: #f7f8fc;
+}
+
+/* image {
+  margin-top: 34rpx;
+  margin-left: 26rpx;
+  width: 30rpx;
+  height: 30rpx;
+} */
+
+.roomlist {
+  width: 710rpx;
+  border: 1px solid #ebebed;
+  background: #fff;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  height: 180rpx;
+  border-radius: 10rpx;
+  margin-top: 22rpx;
+  font-size: 25rpx;
+  color: #585858;
+}
+
+.leftlist {
+  float: left;
+  width: 70%;
+}
+
+.rightlist {
+  margin-top: 12rpx;
+  float: right;
+  line-height: 140rpx;
+}
+
+.listdata {
+  height: 70rpx;
+  line-height: 70rpx;
+}
+
+.titlelist {
+  padding: 25rpx;
+  width: 100%;
+  text-align: center;
+}
+
+.bottomTip {
+  color: #898c8b;
+  font-size: 20rpx;
+  text-align: center;
+  margin-top: 20rpx;
+  margin-bottom: 34rpx;
+  width: 100%;
+}

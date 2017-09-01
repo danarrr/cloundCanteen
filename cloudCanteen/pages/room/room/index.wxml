@@ -1,0 +1,44 @@
+<!--pages/room/room/index.wxml-->
+<import src="../../../component/tabBar/tabBar.wxml" />
+<view class="container ">
+  <view class="nav-top">
+    <navigator url="../../filter/filter" bindtap="showFilter" class="nav-top-item lineh-65" data-type="canteen">
+      <text>{{canteenListTit}}</text>
+    </navigator>
+    <view class="triangle"></view>
+    <navigator class="nav-top-item " url="/pages/calendar/calendar?type=room">
+      <text class="f24">{{date}}</text>
+    </navigator>
+    <view class="triangle"></view>
+    <navigator url="../../filter/filter" bindtap="showFilter" class="nav-top-item" data-type="room">
+      <text class="f24">{{mealListTit}}</text>
+    </navigator>
+    <view class="triangle"></view>
+  </view>
+  <block wx:for="{{roomlist}}" wx:key="id">
+    <view class="roomlist" style="background:{{item.state!=1?'#fff':'#efefef'}}">
+      <view class="leftlist">
+        <view class="listdata">
+          <image src="/image/mine/icon_address.png" style="width:28rpx;height:33rpx;transform:translateY(12%);margin-right:15rpx"></image>
+          <span>{{item.typeName}}</span>
+          <span>{{item.name}}</span>
+        </view>
+        <view class="listdata">
+          <image src="/image/mine/icon_mydinner.png" style="width:32rpx;height:32rpx;transform:translateY(12%);margin-right:15rpx"></image>人数范围：{{item.numMin}} ~ {{item.numMax}} 人
+        </view>
+      </view>
+      <view class="rightlist">
+        <navigator wx:if="{{item.state!=1}}" url="../order/index?id={{item.id}}&name={{item.name}}&numMax={{item.numMax}}&numMin={{item.numMin}}&typeName={{item.typeName}}">
+          <text>去预定</text>
+          <image style="width:16rpx;height:28rpx; transform:translate(10%,16%)" src="/image/mine/btn1.png"></image>
+        </navigator>
+
+        <text wx:if="{{item.state==1}}">已预定</text>
+      </view>
+    </view>
+
+
+  </block>
+</view>
+
+<template data="{{tabBar: tabBar}}" is="tabBar" />

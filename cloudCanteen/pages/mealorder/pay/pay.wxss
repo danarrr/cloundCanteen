@@ -1,0 +1,83 @@
+/* pages/mealorder/pay/pay.wxss */
+@import "/component/altBox/altBox.wxss";
+@import "/component/tipToast/tipToast.wxss";
+
+.pay .paymoney {
+  height: 277rpx;
+  width: 100%;
+  background: #343437;
+  color: #fff;
+}
+
+.pay .paymoney text {
+  text-align: center;
+  display: block;
+  line-height: 87rpx;
+}
+
+.pay .paymoney image {
+  width: 100%;
+  height: 22rpx;
+}
+
+.pay .payway {
+  margin: 43rpx 34rpx;
+  font-size: 28rpx;
+}
+
+.pay .payway image {
+  width: 52rpx;
+  height: 52rpx;
+  transform: translateY(25rpx);
+}
+
+.pay .payway view {
+  border-bottom: 1rpx solid #dfdfdf;
+  height: 103rpx;
+  line-height: 103rpx;
+  color: #585858;
+  display: flex;
+}
+.pay .btn-pay{
+  background: #1bb150;
+  color:#fff;
+  font-size:40rpx;
+  margin-top:600rpx;
+}
+.altbox-paypwd {
+  transform: translateY(290rpx);
+  background: #fff;
+  width: 501rpx;
+  height: 297rpx;
+  text-align: center;
+  margin: 0 auto;
+  border-top: 11rpx solid #1bb150;
+  border-radius: 5rpx;
+}
+
+.altbox-paypwd text {
+  height: 108rpx;
+  line-height: 108rpx;
+  font-size: 33rpx;
+}
+
+.altbox-paypwd input {
+  width: 350rpx;
+  height: 58rpx;
+  line-height: 58rpx;
+  margin: 0 auto;
+  border: 1rpx solid #c7c7c7;
+}
+
+.altbox-paypwd label {
+  width: 49%;
+  height: 44rpx;
+  margin: 20rpx 0;
+  padding: 20rpx 0;
+  border-right: 1rpx solid #c7c7c7;
+  border-top: 1rpx solid #c7c7c7;
+  display: inline-block;
+  font-size: 31rpx;
+  color: #626262;
+}
+

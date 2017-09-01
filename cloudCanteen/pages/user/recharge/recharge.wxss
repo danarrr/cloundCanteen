@@ -1,0 +1,57 @@
+/* pages/user/recharge/recharge.wxss */
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #f6f9fb;
+  color: #939393;
+  display: flex;
+  /*flex-flow: row wrap;*//*justify-content: space-between;*/
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+
+.recharge {
+  font-size: 28rpx;
+  color: #414141;
+}
+
+.box-info {
+  border-top: 1rpx solid #e7e7e7;
+  border-bottom: 1rpx solid #e7e7e7;
+  background: #fff;
+  margin-bottom: 17rpx;
+  padding: 0 37rpx;
+}
+
+.box-info>view {
+  border-bottom: 1rpx solid #e7e7e7;
+}
+
+.rechargeid input {
+  border: 1rpx solid #c7c7c7;
+  color: #1b1b1b;
+  height: 64rpx;
+  line-height: 64rpx;
+  padding: 0 21rpx;
+  width: 478rpx;
+  box-sizing: border-box;
+  margin-top: 23rpx;
+}
+
+.rechargemoney input {
+  width: 604rpx;
+  height: 82rpx;
+  line-height: 82rpx;
+  color: #1bb150;
+  margin-top: 38rpx;
+}
+
+.recharge button {
+  width: 679rpx;
+  display: block;
+  border-radius: 5rpx;
+  margin-top: 35rpx;
+}

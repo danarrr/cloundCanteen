@@ -1,0 +1,139 @@
+/* pages/user/setting/setting.wxss */
+@import "/component/altBox/altBox.wxss";
+@import "/component/tipToast/tipToast.wxss"; 
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #f0f3f5;
+  color: #939393;
+  display: flex;
+  /*flex-flow: row wrap;*//*flex-flow: row wrap;justify-content: space-between;*//*flex-direction: column;*/
+  padding: 0;
+  /*overflow: hidden;*//*flex-direction: column;*/
+}
+
+.page-index {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.page-index .selectbox {
+  width: 100%;
+  border: 1rpx solid #ddd;
+  background: #fff;
+  padding: 0 38rpx;
+  color: #404040;
+  box-sizing: border-box;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}
+
+.page-index .selectbox view {
+  height: 94rpx;
+  line-height: 94rpx;
+  border-bottom: 1rpx solid #ddd;
+  display: flex;
+  justify-content: space-between;
+}
+
+.page-index .btn-logout {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background: #1bb150;
+  color: #fff;
+}
+
+.selectbox image {
+  width: 16rpx;
+  height: 27rpx;
+  transform: translateY(150%);
+}
+
+.page-about {
+  height: 100%;
+  width: 100%;
+  padding-top: 97rpx;
+  text-align: center;
+}
+
+.page-about image {
+  display: block;
+  margin: 0 auto;
+  height: 246rpx;
+  width: 187rpx;
+  padding-bottom: 5rpx;
+}
+
+.page-etc {
+  width: 100%;
+  background: #ddd;
+  font-size: 38rpx;
+  line-height: 50rpx;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  z-index: 999;
+}
+
+.page-etc text {
+  display: block;
+}
+
+.page-etc view {
+  padding: 63rpx 0;
+  border-bottom: 1rpx solid #ddd;
+  background: #fff;
+}
+
+.page-etc button {
+  border: 0rpx;
+  border-radius: 0;
+  background: #fff;
+  font-size: 38rpx;
+}
+.page-changePwd{
+  width:100%;
+  
+}
+.page-changePwd input[type="text"]{
+  height: 94rpx;
+  line-height: 94rpx;
+  font-size: 24rpx;
+  color: #414141;
+  border-top: 1rpx solid #ddd;
+  border-bottom: 1rpx solid #ddd;
+  background: #ffffff;
+  padding:0 38rpx 0rpx 140rpx;
+  box-sizing: border-box;
+}
+.page-changePwd text{
+  height: 94rpx;
+  line-height: 94rpx;
+  font-size:28rpx;
+  color: #414141;
+ margin-left:20rpx;
+  display: block;
+  z-index:999;
+  position:fixed; 
+  
+}
+.page-changePwd .oldpwd{
+  margin:22rpx 0;
+  position:relative;
+}
+.page-changePwd button{
+  width:677rpx;
+  height:87rpx;
+}
+.page-changePwd .btn-confirm{
+margin-top:80rpx;
+color:#fff;
+background-color: #1bb150
+}
+.page-changePwd .btn-cancel{
+  margin-top:24rpx;
+}

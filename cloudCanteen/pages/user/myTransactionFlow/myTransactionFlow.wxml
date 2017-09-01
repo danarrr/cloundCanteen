@@ -1,0 +1,42 @@
+<import src="/component/tipToast/tipToast.wxml" />
+<template is="tipToast" data="{{tipToastText:tipToastText,tipToastAnimationData:tipToastAnimationData}}"></template>
+
+<view class="topView">
+  <view class="accountTypeView" bindtap="onAccountType">
+    <picker name="selector" bindchange="bindPickerChange2" range="{{show_arr2}}">
+      <text>账户类型({{result2}})</text>
+      <view class="triangle"></view>
+    </picker>
+
+  </view>
+  <view class="lineView"></view>
+  <view class="transTypeView">
+    <picker name="selector" bindchange="bindPickerChange" value="{{picker_index}}" range="{{picker_arr}}">
+      <text>交易类型({{result}})</text>
+      <view class="triangle"></view>
+    </picker>
+  </view>
+</view>
+<view class="contain">
+  <block wx:for="{{cardFlowDatas}}" wx:for-item="item">
+    <view class="content">
+      <view class="one">
+        <view class="oneContainer">
+          <image src="/image/mine/icon-transflow.png"></image>
+          <view class="transtype">{{item.transType}}-{{item.remark}}</view>
+          <view class="transtime">{{item.transTime}}</view>
+        </view>
+        <view class="twoContainer {{item.moneyIn-item.moneyOut>0?'color-green':'color-red'}}">
+          {{item.moneyIn-item.moneyOut>0?"+":""}}{{item.moneyIn-item.moneyOut}}
+        </view>
+      </view>
+      <view class="two">
+        <view bindtap="toReportDinner" data-canteen-id="{{item.canteenId}}" data-canteen-name="{{item.canteenName}}" class="oneCanteen">
+          {{item.transType}}账户余额：{{item.moneyBalance}}
+        </view>
+      </view>
+    </view>
+  </block>
+  <!-- 加载完所有数据的提示 -->
+  <text wx:if="{{totalPage==pageNo}}" class="bottomTip">小程序只显示最近31天的过期记录\n更多数据请登录电脑端个人平台或联系食堂管理员查询！</text>
+</view>

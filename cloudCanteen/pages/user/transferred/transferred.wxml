@@ -1,0 +1,25 @@
+
+<import src="../../../component/altBox/altBox.wxml" />
+<import src="/component/tipToast/tipToast.wxml" />
+<template is="tipToast" data="{{tipToastText:tipToastText,tipToastAnimationData:tipToastAnimationData}}"></template>
+<template is="altBox" data="{{altBoxData:altBoxData}}" wx:if="{{showAltBox}}"></template>
+<view class="container transfer">
+  <view class="box-info selfmoney" >您的饭卡可转账余额<text class="f58 color-40">￥{{selfMoney}}</text></view>
+  <view class="box-info transferid">
+    <view class="flex-between" style="line-height:106rpx;height:106rpx;"> 转账到用户：
+      <input type="text" bindblur="bindCardId" placeholder="输入用户编码"/>
+    </view>
+    <view style="line-height:59rpx;height:59rpx;" class="color-green">
+      <image wx:if="{{name}}" style="width:28rpx;height:28rpx;transform:translateY(20%);margin-right:10rpx;" src="/image/mine/icon-!.png"></image>
+      <text wx:if="{{name}}">姓名：{{name}}; 用户编号：{{usrid}}{{errorInfo}}</text>
+    </view>
+  </view>
+  <view class="box-info transfermoney">
+    <view style="line-height:76rpx;height:76rpx;"> 转账金额：</view>
+    <view class="flex-between" style="line-height:155rpx;height:155rpx;font-size:40rpx;">￥<input type="text" bindblur="bindTransferMoney" placeholder="输入充值金额" /></view>
+  </view>
+  <view class="bottom">
+    <image  src="/image/mine/dun.png" style="width:41rpx;height:48rpx"></image>
+    <button type="primary" bindtap="bindConfirmTransfer">确认转账</button>
+  </view>
+</view>

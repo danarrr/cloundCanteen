@@ -1,0 +1,46 @@
+<import src="/component/tipToast/tipToast.wxml" />
+<template is="tipToast" data="{{tipToastText:tipToastText,tipToastAnimationData:tipToastAnimationData}}"></template>
+<view>
+  <view>
+    <!--日历头-->
+    <view class="week-title">
+      <view class="weekend">日</view>
+      <view>一</view>
+      <view>二</view>
+      <view>三</view>
+      <view>四</view>
+      <view>五</view>
+      <view class="weekend">六</view>
+    </view>
+
+    <!--style="height:{{scrollViewHeight}}rpx;"-->
+    <scroll-view scroll-y="true" scroll-into-view="{{toView}}">
+
+      <!--遍历出所有月份-->
+      <view class="months" wx:for="{{dates}}" wx:for-item="items" wx:for-index="index" id="{{'toView_'+index}}">
+
+        <!--每月标题-->
+        <view class="month-title">{{months[index]}}</view>
+
+        <!-- 某个月的数据 -->
+        <view class="month">
+          <!--遍历出某月的所有天-->
+          <view class="days" wx:for="{{items}}" wx:for-item="item" wx:for-index="index_">
+            <!-- 某天 -->
+            <view class="day  {{item.status}} {{curNav == item.day ? ' active' : ''}}" data-selectable="{{item.selectable}}" data-day="{{item.day}}" data-info="{{item.info}}" data-monthpos="{{index}}" data-daypos="{{index_}}" bindtap="selectDay">
+              {{item.showDay}}
+              <!--class=""-->
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="buttonArea">
+    <view class="button" bindtap="confirmDate">确认</view>
+  </view>
+
+
+
+</view>

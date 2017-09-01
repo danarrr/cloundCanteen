@@ -1,0 +1,139 @@
+/* pages/user/myDinner/myDinner.wxss */
+@import "/component/tipToast/tipToast.wxss";
+
+.nav {
+  width: 100%;
+  border-bottom: 1rpx solid #d9d9d9;
+}
+
+.titles {
+  box-sizing: border-box;
+  height: 96rpx;
+  width: 750rpx;
+  background: #fff;
+  display: flex;
+  justify-content: space-around;
+  flex-grow: 1;
+  padding-top: 17rpx;
+  padding-bottom: 17rpx;
+}
+
+.titles > .title:not(:last-of-type) {
+  /*除最后一个title以外的标签添加右边框*/
+  border-right: 1px solid #d9d9d9;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.nav-indicator {
+  height: 2px;
+  background: #1bb14f;
+}
+
+.content {
+  background: #f7f8fc;
+}
+
+.page {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  -webkit-overflow-scrolling: touch;
+}
+
+.willEvaluate, .evaluated {
+  background: #f7f8fc;
+}
+
+.space {
+  color: transparent;
+  font-size: 18rpx;
+}
+
+.one {
+  /* flex-shrink: 0; 子元素不缩放 */
+  flex-shrink: 0;
+  width: 710rpx;
+  height: 162rpx;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid #ebebed;
+  background: #fff;
+  margin-bottom: 18rpx;
+  position: relative;
+}
+
+.one .first-img {
+  position: absolute;
+  width: 30rpx;
+  height: 30rpx;
+  margin-top: 34rpx;
+  margin-left: 26rpx;
+}
+
+.one .second-img {
+  position: absolute;
+  width: 26rpx;
+  height: 32rpx;
+  margin-top: 94rpx;
+  margin-left: 26rpx;
+}
+
+.one .third-img {
+  position: absolute;
+  width: 14rpx;
+  height: 28rpx;
+  top: 66rpx;
+  right: 30rpx;
+}
+
+.one > .date {
+  position: absolute;
+  top: 30rpx;
+  left: 74rpx;
+  font-size: 25rpx;
+  color: #585858;
+}
+
+.one > .one-canteen {
+  position: absolute;
+  top: 90rpx;
+  left: 74rpx;
+  font-size: 25rpx;
+  color: #585858;
+}
+
+.one .one-togo {
+  position: absolute;
+  top: 60rpx;
+  right: 68rpx;
+  font-size: 26rpx;
+  color: #585858;
+}
+
+.bottom-tip {
+  color: #898c8b;
+  font-size: 20rpx;
+  text-align: center;
+  margin-top: 20rpx;
+  margin-bottom: 34rpx;
+  width: 100%;
+}
+
+.bottomTip {
+  color: #898c8b;
+  font-size: 20rpx;
+  text-align: center;
+  margin-top: 20rpx;
+  margin-bottom: 34rpx;
+  width: 100%;
+}

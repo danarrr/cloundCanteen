@@ -1,0 +1,101 @@
+<!--index.wxml-->
+<import src="/component/num/num.wxml" />
+<import src="/component/tipToast/tipToast.wxml" />
+
+<loading wx:if="{{showLoading}}">加载中</loading>
+<template is="tipToast" data="{{tipToastText:tipToastText,tipToastAnimationData:tipToastAnimationData}}"></template>
+
+
+
+<view class="container ">
+  <!--个人订餐页-->
+  <view class="{{BGopacity== true? 'bg-opacity' : ''}}"> </view>
+  <view class="nav-top" wx:if="{{!showSrhPage}}">
+    <navigator bindtap="showFilter" class="nav-top-item lineh-65" url="../../filter/filter" data-type="canteen">{{canteenListTit.canteenName}}</navigator>
+    <view class="triangle"></view>
+    <navigator class="nav-top-item " url="/pages/calendar/calendar?type=mealorder">
+      <text class="item-black">{{dateTit.date}}</text>
+      <text class="item-gray">{{dateTit.week}}</text>
+    </navigator>
+    <view class="triangle"></view>
+    <navigator bindtap="showFilter" class="nav-top-item" url="../../filter/filter" data-type="meal">
+      <text class="item-black">{{mealListTit.mealTit}}</text>
+      <text class="item-gray">{{mealListTit.mealTime}}</text>
+    </navigator>
+    <view class="triangle"></view>
+    <navigator url="/pages/mealorder/search/search">
+      <image src="/image/icon-srch.png"></image>
+    </navigator>
+  </view>
+  <view class="main">
+    <view class="nav-left" wx:if="{{!showSrhPage}}">
+      <block wx:for="{{navLeftItems}}" wx:key="">
+        <view class="totalnum" wx:if="{{item.total>0}}">{{item.total}}</view>
+        <view class="nav-left-items {{curNav == index ? 'active' : ''}}" bindtap="switchRightTab" data-index="{{index}}" data-id="{{item.id}}" data-name="{{item.value}}">{{item.value}}</view>
+      </block>
+    </view>
+    <view class="nav-right" wx:if="{{!showSrhPage}}">
+      <block wx:for="{{navRightItems}}" wx:key="">
+        <view class="nav-right-items " wx:if="{{curNav+1}}" data-index="{{index}}" data-id="{{item}}">
+          <image wx:if="{{item.picUrl}}" class="nav-right-good" src="{{item.picUrl}}" />
+
+          <view class="nav-right-itembox ">
+            <view class="nav-right-tit">{{item.name}}</view>
+            <text wx:if="{{item.dish}}">
+              {{item.dish}}
+            </text>
+
+            <view class="nav-right-price">￥{{item.discountPrice}}
+              <text class="nav-right-discount" style="text-decoration:line-through" wx:if="{{!item.num}}"> ￥{{item.price}} </text>
+              <!-- <template data="{{cartList,item,discount,deliveryornot,moneylimit}}" is="numBtn" /> -->
+              <template data="{{item,deliveryornot,moneylimit}}" is="numBtn" />
+            </view>
+          </view>
+        </view>
+      </block>
+
+    </view>
+  </view>
+
+  <view class="cart" wx:if="{{!showSrhPage}}">
+    <view class="{{needAnimation ? (openPicker ? 'slidup' : 'slidown') : ''}}">
+
+
+      <view class="cartnum" style="transform: {{needAnimation ? (openPicker ? 'translateY(-100%)' : 'translateY(-20%)') : ''}}">
+        <image class="carticon " style=" width: 93rpx;height: 93rpx;" src="../../../image/cart.png" bindtap="showCartList"></image>
+        <text wx:if="{{cartNum}}">{{cartNum}}</text>
+      </view>
+      <view class="triangle-up" wx:if="{{showCart}}"></view>
+      <view class="cartlist " wx:if="{{showCart}}">
+
+        <view class="title">
+          <text style="height:85rpx;color:#222222;font-size:30rpx;">我的餐车</text>
+          <view bindtap="empty" class="f24">
+            <image src="/image/icon-delete.png" style="transform:translate(-40%,18%)"> </image>清空
+          </view>
+        </view>
+        <view class="cartlist-items" height="56rpx" wx:for="{{cartListTit}}" wx:for-item="items">
+          <view class="cartlist-itemtit">{{items.tit}}</view>
+          <!-- <view class="cartlist-item" wx:for="{{cartList[items.info]}}" wx:if="{{item.num}}"> -->
+          <view class="cartlist-item" wx:for="{{cartList[items.info]}}" style="display:{{item.num==0&&item.showNum0=='hidenum'? 'none' : 'flex'}}">
+            <view style="flex:2">
+              <!-- <image wx:if="{{item.num}}" src="/image/dian-g.png" style="margin-right:8rpx;width:10rpx;height:10rpx;"></image>{{item.name}}</view> -->
+              <image src="/image/dian-g.png" style="margin-right:8rpx;width:10rpx;height:10rpx;"></image>{{item.name}}</view>
+            <view style="flex:1">
+              <!-- <text wx:if="{{item.num}}" class="color-orange"> ￥{{item.discountPrice}}</text>/{{item.unit}} </view> -->
+              <text class="color-orange"> ￥{{item.discountPrice}}</text>/{{item.unit}} </view>
+            <view style="flex:2">
+              <template data="{{item,items}}" is="numBtn" />
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="money">
+      <text class="{{needAnimation ? (openPicker ? 'slidright' : 'slidleft') : ''}}">合计：<text style="font-weight:bolder;font-size:32rpx">￥{{cartMoney}}</text>
+      </text>
+      <button bindtap="toConfirm">下一步</button>
+    </view>
+  </view>
+
+</view>

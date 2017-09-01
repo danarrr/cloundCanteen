@@ -1,0 +1,139 @@
+/* pages/user/myDinner/myDinner.wxss */
+@import "/component/tipToast/tipToast.wxss";
+
+.nav {
+  width: 100%;
+  border-bottom: 1rpx solid #d9d9d9;
+}
+
+.titles {
+  box-sizing: border-box;
+  font-size: 30rpx;
+  color: #383838;
+  height: 96rpx;
+  width: 750rpx;
+  background: #fff;
+  display: flex;
+  justify-content: space-around;
+  flex-grow: 1;
+  padding-top: 17rpx;
+  padding-bottom: 17rpx;
+}
+
+.titles > .title:not(:last-of-type) {
+  /*除最后一个title以外的标签添加右边框*/
+  border-right: 1px solid #d9d9d9;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.nav-indicator {
+  height: 2px;
+  background: #1bb14f;
+}
+
+.content {
+  background: #f7f8fc;
+}
+
+.page {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.willEat, .ate, .overdue {
+  background: #f7f8fc;
+}
+
+.tip {
+  color: #fe693a;
+  font-size: 20rpx;
+  margin-top: 14rpx;
+  margin-bottom: 14rpx;
+  text-align: right;
+  margin-right: 24rpx;
+  align-self: flex-end;
+}
+
+.space {
+  color: transparent;
+  font-size: 18rpx;
+}
+
+.bottomTip {
+  color: #898c8b;
+  font-size: 20rpx;
+  text-align: center;
+  margin-top: 20rpx;
+  margin-bottom: 34rpx;
+  width: 100%;
+}
+
+.one {
+  width: 710rpx;
+  height: 224rpx;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid #ebebed;
+  background: #fff;
+  margin-bottom: 18rpx;
+}
+
+.oneContainer {
+  color: black;
+  position: relative;
+  border-bottom: #f3f3f3 solid 1px;
+  height: 146rpx;
+}
+
+.oneContainer > image {
+  margin-top: 34rpx;
+  margin-left: 26rpx;
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.oneContainer > .date {
+  position: absolute;
+  top: 32rpx;
+  left: 74rpx;
+  font-size: 25rpx;
+  color: #585858;
+}
+
+.oneContainer > .tradeName {
+  position: absolute;
+  top: 96rpx;
+  left: 74rpx;
+  font-size: 25rpx;
+  color: #6e6e6e;
+}
+
+.oneCanteen {
+  color: #40ba69;
+  font-size: 28rpx;
+  height: 74rpx;
+  line-height: 74rpx;
+  text-align: right;
+  padding-right: 40rpx;
+  position: relative;
+}
+
+.one-canteen-img {
+  position: absolute;
+  width: 14rpx;
+  height: 26rpx;
+  top: 24.5rpx;
+  right: 15rpx;
+}

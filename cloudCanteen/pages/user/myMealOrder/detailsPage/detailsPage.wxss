@@ -1,0 +1,135 @@
+/* pages/user/myMealOrder/willSpend/willSpend.wxss */
+@import "/component/altBox/altBox.wxss";
+@import "/component/tipToast/tipToast.wxss";
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #f6f9fb;
+  color: #939393;
+  display: flex;
+  /*flex-flow: row wrap;*//*justify-content: space-between;*/
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+
+.box-info {
+  width: 708rpx;
+  border: 1rpx solid #d0d0d0;
+  background: #fff;
+  margin: 0 auto;
+  border-radius: 10rpx;
+  margin-top: 21rpx;
+  padding: 0rpx 32rpx;
+  box-sizing: border-box;
+  font-size: 26rpx;
+}
+
+/* .box-info text {
+  color: #232323;
+  width: 128rpx;
+  line-height: 75rpx;
+  height: 100%;
+  display: inline-block;
+  border-right: 1rpx solid #d0d0d0;
+  padding-right: 23rpx;
+  margin-right: 23rpx;
+  /* border-bottom: 1rpx solid #d0d0d0;float: left */
+
+/* }
+
+.box-info view {
+  color: #969696;
+  width: 100%;
+  display: inline-block;
+  line-height: 75rpx;
+  border-bottom: 1rpx solid #d0d0d0;
+} */
+
+.box-info text:first-child {
+  color: #232323;
+  flex: 1;
+
+ 
+  padding-right: 23rpx;
+
+}
+
+.box-info text:nth-child(2) {
+  color: #969696;
+
+
+  flex: 4;
+  overflow-x: auto;
+  padding-left: 23rpx;
+  display: inline-block;
+  border-left: 1rpx solid #d0d0d0;
+}
+
+.box-info view {
+  color: #232323;
+  width: 100%;
+   height: 100%;
+  display: flex;
+  line-height: 75rpx;
+  border-bottom: 1rpx solid #d0d0d0;
+}
+
+.box-paytype {
+  width: 708rpx;
+  border: 1rpx solid #d0d0d0;
+  background: #fff;
+  margin: 0 auto;
+  border-radius: 10rpx;
+  margin-top: 21rpx;
+  padding: 0rpx 32rpx;
+  box-sizing: border-box;
+  font-size: 26rpx;
+}
+
+.box-paytype>view {
+  color: #969696;
+  width: 100%;
+  line-height: 90rpx;
+  border-bottom: 1rpx solid #d0d0d0;
+}
+
+.box-paytype radio-group {
+  color: #969696;
+  width: 100%;
+  line-height: 90rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.box-paytype text {
+  color: #232323;
+}
+
+.container .btn {
+  /* width: 708rpx; */
+  width: 100%;
+  position: fixed;
+  bottom: 0rpx;
+  background: #1bb150;
+  color: #fff;
+  z-index: 99;
+}
+
+.timeout {
+  width: 100%;
+  text-align: center;
+  font-size: 27rpx;
+  color: #636363;
+  position: fixed;
+  bottom: 100rpx;
+  z-index: 100;
+}
+
+.timeout image {
+  width: 37rpx;
+  height: 46rpx;
+  transform: translateY(170%);
+}

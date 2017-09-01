@@ -1,0 +1,71 @@
+<!--roomDetail.wxml-->
+<import src="/component/tipToast/tipToast.wxml" />
+<!--【tipToast】直接复制-->
+<template is="tipToast" data="{{tipToastText:tipToastText,tipToastAnimationData:tipToastAnimationData}}"></template>
+<view class="container ">
+  <!--餐次信息-->
+  <view class="contain">
+    <view class="contain-li">
+      <view>
+        <image src="/image/room/icon-trade.png" style="margin-left:-40rpx;margin-right:10rpx;height:31rpx;width:25rpx"></image>餐次信息
+      </view>
+    </view>
+    <view class="contain-li">
+      <span>食堂：</span>
+      <span>{{roomlist.canteenName}}</span>
+    </view>
+    <view class="contain-li">
+      <span>日期：</span>
+      <span>{{roomlist.ordersDate}}{{roomlist.ordersDateDesc}}</span>
+    </view>
+    <view class="contain-li">
+      <span>餐次：</span>
+      <span>{{roomlist.tradeName}}</span>
+    </view>
+  </view>
+
+  <!--包房信息-->
+  <view class="contain">
+    <view class="contain-li">
+      <view>
+        <image src="/image/room/icon-room.png" style="margin-left:-40rpx;margin-right:10rpx;height:31rpx;width:31rpx"></image>包房信息
+      </view>
+    </view>
+    <view class="contain-li">
+      <span>包房名称：</span>
+      <span>{{roomlist.roomName}}</span>
+    </view>
+    <view class="contain-li">
+      <span>包房类别：</span>
+      <span>{{roomlist.typeName}}</span>
+    </view>
+    <view class="contain-li">
+      <span>人数范围：</span>
+      <span>{{roomlist.numRange}} 人</span>
+    </view>
+    <view class="contain-li">
+      <span>实际就餐人数：</span>
+      <span>{{roomlist.numPeople}} 人</span>
+    </view>
+  </view>
+
+  <!--预订人信息-->
+  <view class="contain">
+    <view class="contain-li">
+      <view>
+        <image src="/image/room/icon-usr.png" style="margin-left:-40rpx;margin-right:10rpx;height:31rpx;width:31rpx"></image>预订人信息
+      </view>
+    </view>
+    <view class="contain-li">
+      <span>预订人：</span>
+      <span>{{roomlist.reserveName}} 人</span>
+    </view>
+    <view class="contain-li">
+      <span>联系电话：</span>
+      <span>{{roomlist.phone}} 人</span>
+    </view>
+
+  </view>
+  <button wx:if="{{roomlist.pagetype==0}}" class="select-confirm" bindtap="submit">取消</button>
+  <button wx:if="{{roomlist.pagetype==1}}" class="select-confirm" bindtap="wx.navigateBack()">返回</button>
+</view>

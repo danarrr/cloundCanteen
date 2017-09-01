@@ -1,0 +1,74 @@
+<!--pages/reportDinner/index/index.wxml-->
+<import src="../../../component/tabBar/tabBar.wxml" />
+<import src="/component/tipToast/tipToast.wxml" />
+<!-- 提示层会遮住其他，暂时不引用 -->
+<template is="tipToast" data="{{tipToastText:tipToastText,tipToastAnimationData:tipToastAnimationData}}"></template>
+<view class="container">
+  <view class="header">
+    <navigator bindtap="showFilter" class="nav-top-item lineh-65" url="../../filter/filter" data-type="canteen">{{sltDinnerCanteenName}}</navigator>
+    <view class="triangle"></view>
+    <view class="btn-sltall" bindtap="sltAll">全选</view>
+  </view>
+  <view class=" main ">
+    <view class="nav-left">
+      <view class="nav-right-tit">日期</view>
+      <view class="nav-left-item" wx:for="{{date}}">
+        <text class="item-black">{{item.week}}</text>
+        <text class="item-gray">{{item.date}}</text>
+      </view>
+    </view>
+    <view class="nav-right">
+      <view style="  width:{{totalWidth}};overflow-x: auto;display:block">
+        <view class="nav-right-items" style="width:{{width}}" wx:for="{{trade}}">
+          <view class="nav-right-tit">{{item}}</view>
+          <view wx:for="{{newDataList[item]}}" wx:for-item="items">
+            <!--// 0：未选中，可选
+              // 1：已过期或未开启报餐，不可选
+              // 2：已团体报餐，不可选  
+              // 3：已选，可取消-->
+
+            <view bindtap="clickCurr" data-itemData="{{items}}" data-parent="{{item}}">
+              <image wx:if="{{items.status==0}}" src="/image/dinner/re-btn.png"></image>
+            </view>
+            <image wx:if="{{items.status==1}}" src="/image/dinner/re-ban.png"></image>
+
+            <view bindtap="clickCurr" data-itemData="{{items}}" data-parent="{{item}}">
+              <image wx:if="{{items.status==3}}" src="/image/dinner/re-curr.png"></image>
+            </view>
+            <image wx:if="{{items.status==2}}" src="/image/dinner/re-lose.png"></image>
+
+          </view>
+          <!--<checkbox-group bindchange="checkboxChange">
+            <label class="checkbox" wx:for="{{newDataList[item]}}" wx:for-item="items">
+              <checkbox value="{{item.tradeName}}" checked="{{item.checked}}" wx:if="{{items.status==0}}" />
+              <image wx:if="{{items.status==0}}" src="/image/dinner/re-btn.png"></image>
+              <image wx:if="{{items.status==1}}" src="/image/dinner/re-ban.png"></image>
+              <image wx:if="{{items.status==3}}" src="/image/dinner/re-curr.png"></image>
+              <image wx:if="{{items.status==2}}" src="/image/dinner/re-lose.png"></image>
+
+            </label>
+          </checkbox-group>-->
+        </view>
+      </view>
+    </view>
+    <!--<view wx:for="{{trade}}">
+
+     
+    </view>-->
+
+  </view>
+
+  <!-- 不是修改报餐 -->
+  <view wx:if="{{!isChangeReport}}">
+    <view class="footer">
+      <button bindtap="confirmCreatDinner">确认报餐</button>
+    </view>
+    <template data="{{tabBar: tabBar}}" is="tabBar" />
+  </view>
+  <!-- 修改报餐 -->
+  <view wx:else class="area-change-report">
+    <button class="first-button" bindtap="confirmCreatDinner">确认修改</button>
+    <button class="second-button" bindtap="clickCancelButton">取消</button>
+  </view>
+
+</view>

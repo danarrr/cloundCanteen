@@ -1,0 +1,67 @@
+<!--pages/user/myMealOrder/willSpend/willSpend.wxml-->
+<import src="/component/altBox/altBox.wxml" />
+<import src="/component/tipToast/tipToast.wxml" />
+<template is="tipToast" data="{{tipToastText:tipToastText,tipToastAnimationData:tipToastAnimationData}}"></template>
+<template is="altBox" data="{{altBoxData:altBoxData}}" wx:if="{{showAltBox}}"></template>
+<view class="container">
+  <view class="box-info">
+    <view><text>订单号    </text> <text>{{item.batchId}}</text>
+    </view>
+    <view><text>日期餐次</text><text> {{item.date}} {{item.trade}}</text>
+    </view>
+    <view><text>就餐食堂</text> <text>{{item.canteen}}</text>
+    </view>
+    <view><text>预订菜品</text><text> {{item.dish}}</text>
+    </view>
+  </view>
+
+  <view class="box-info" wx:if="{{item.pageType!='willPay'}}">
+    <view><text>菜品总价</text> <text>{{dishmoney}}</text>
+    </view>
+    <view><text>超时罚款</text> <text>{{fine}}</text>
+    </view>
+    <view><text>订餐总价</text><text>{{item.total}}</text>
+    </view>
+  </view>
+  <view class="box-info" wx:if="{{item.pageType!='willPay'}}">
+    <view><text>订餐来源</text> <text>{{item.from}}</text>
+    </view>
+    <view><text>支付方式</text><text> {{item.paytype==0?'饭卡支付':'微信支付'}}</text>
+    </view>
+    <view><text>配送地址</text> <text>{{address}}</text>
+    </view>
+    <view><text>配送备注</text> <text>{{item.remark=='null'?'':item.remark}}</text>
+    </view>
+  </view>
+  <view class="box-info" wx:if="{{item.pageType=='willPay'}}">
+    <view><text>订餐总价</text> <text>{{item.total}}</text>
+    </view>
+    <view><text>订餐来源</text><text> {{item.from}}</text>
+    </view>
+    <view><text>配送地址</text> <text>{{address}}</text>
+    </view>
+    <view><text>配送备注</text> <text>{{item.remark=='null'?'':item.remark}}</text>
+    </view>
+  </view>
+  <view class="box-paytype" wx:if="{{item.pageType=='willPay'}}">
+    <view><text>支付方式</text></view>
+
+    <radio-group class="radio-group" bindchange="radioChange">
+      <view>
+        <image style="width:52rpx;height:52rpx;transform:translateY(30%);margin-right:10rpx;" src="/image/card.png"></image>
+        饭卡支付
+      </view>
+      <view>
+        <radio value="card"></radio>
+      </view>
+    </radio-group>
+
+  </view>
+  <view class="timeout" wx:if="{{item.pageType=='willPay'}}">
+    <image  src="/image/mine/dun.png"></image> 支付剩余时间:{{clock}}
+  </view>
+  <button  wx:if="{{showCancelBtn=='willPay'}}" class="btn" bindtap="bindPay">确认支付</button>
+  <button wx:if="{{showCancelBtn=='willSpend'}}" class="btn" bindtap="bindNotBooking">取消预订</button>
+  <button wx:if="{{showCancelBtn=='cancel'}}" class="btn" bindtap="cancel">返回</button>
+
+</view>

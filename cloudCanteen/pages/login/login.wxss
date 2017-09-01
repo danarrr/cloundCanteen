@@ -1,0 +1,20 @@
+/* pages/login/login.wxss */
+
+/* 【tipToast】*/
+@import "/component/tipToast/tipToast.wxss"; 
+
+.login .logo{display:flex;justify-content: center}
+.login .logo image{width:197rpx;height: 255rpx;margin:130rpx 0 103rpx}
+.login input{width:455rpx;height:81rpx;line-height:81rpx;font-size:30rpx;margin:0 auto;border-radius:100rpx;margin-bottom:29rpx;border:1px solid #17c358;padding:0 20px 0 45px ;box-sizing: border-box;color: #626262}
+/*.login input[type="text"]{}*/
+.login button{background-color: #1bb150;color:#fff;width:455rpx;height:81rpx;line-height:81rpx;font-size:30rpx;border-radius:100rpx;}
+.login .icon-usr{width:37rpx;height: 37rpx;transform: translate3d(180rpx,-85rpx,0);position:absolute}
+.login .icon-pw{width:28rpx;height: 39rpx;transform: translate3d(180rpx,-87rpx,0);position:absolute}
+.login text{text-align: right;display: block;color:#626262;margin:24rpx 120rpx;font-size:24rpx}
+.login .icon-verify{width:34rpx;height: 23rpx;transform: translate3d(180rpx,-75rpx,0);position:absolute}
+.login .verifyImg{
+  width:109rpx;
+  height: 50rpx;
+  transform: translate3d(450rpx,-90rpx,0);position:absolute;
+  z-index: 99
+}

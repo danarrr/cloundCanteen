@@ -1,0 +1,39 @@
+<!--pages/component/num.wxml-->
+<template name="numBtn">
+  <view class="btn-num">
+   <image  wx:if="{{item.num}}"  bindtap="reduceTap" src="/image/icon-reduce.png"
+      data-discountprice="{{item.discountPrice}}"
+      data-dishsetInfo="{{item.dish}}"
+      data-id="{{item.id}}"
+      data-num="{{item.num}}" 
+      data-price="{{item.price}}"
+      data-name="{{item.name}}" 
+      data-parent="{{!item.parentObj?!item.className?item.parent:item.className:item.parentObj}}"
+      data-carttitinfo="{{items.info}}"
+      data-shownum="{{item.showNum0}}"
+      >
+    </image> 
+    <!-- <image animation="{{animationData}}" wx:if="{{item.num}}" data-discount="{{discount}}"  bindtap="reduceTap" data-dishsetInfo="{{item.dish}}" data-id="{{item.id}}" data-num="{{item.num}}" data-price="{{item.price}}" data-name="{{item.name}}"  data-parent="{{item.className}}" data-carttitinfo="{{items.info}}"  src="/image/icon-reduce.png"></image> -->
+ 
+    <!--加入数据列表开始-->
+    <!-- <text style="display:{{item.num==0&&item.showNum0==false? 'none' : 'block'}}">{{item.num}}</text>  -->
+    <text style="display:{{item.num==0&&item.showNum0==hidenum? 'none' : 'block'}}">{{item.num}}</text>
+    <!--加入数据列表结束-->
+    <image bindtap="addTap" src="/image/icon-add.png"
+      data-unit="{{item.unit}}"
+      data-moneylimit="{{!moneylimit?item.moneylimit:moneylimit}}"
+      data-discountprice="{{item.discountPrice}}"
+      data-id="{{item.id}}"
+      data-price="{{item.price}}"
+      data-parent="{{!item.parentObj?!item.className?item.parent:item.className:item.parentObj}}"
+      data-name="{{item.name}}" 
+      data-carttitinfo="{{items.info}}" 
+      data-dishsetInfo="{{item.dish}}" 
+      data-num="{{item.num}}" 
+      data-gooddish="{{item.dish}}"
+      data-deliveryornot="{{deliveryornot}}"
+      data-shownum="{{item.showNum0}}"
+    >
+    </image> 
+  </view>
+</template>

@@ -1,0 +1,262 @@
+/* pages/user/myComment/commentDetail/commentDetail.wxss */
+@import "/component/tipToast/tipToast.wxss";
+
+.page-container {
+  height: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  background: #f7f8fc;
+}
+
+.eval-type-title, .title, .score, .to-words, .words, .anonymous,
+.dish-img-container {
+  background: #fff;
+}
+
+.eval-type-title {
+  height: 78rpx;
+  width: 100%;
+  color: #1ab152;
+  font-size: 28rpx;
+  border: solid 1px #ececec;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.eval-type-title image {
+  height: 32rpx;
+  width: 32rpx;
+  position: absolute;
+  top: 23rpx;
+  left: 24rpx;
+}
+
+.eval-type-title  > view {
+  position: absolute;
+  top: 23rpx;
+  left: 64rpx;
+}
+
+.title {
+  width: 100%;
+  height: 100rpx;
+  font-size: 26rpx;
+  color: #5e5e5e;
+  text-align: center;
+  padding-top: 36rpx;
+  box-sizing: border-box;
+}
+
+.score {
+  box-sizing: border-box;
+  height: 75rpx;
+  text-align: center;
+}
+
+.evaluate-container {
+  display: inline-block;
+  position: relative;
+  margin-left: 73rpx;
+}
+
+.score  text {
+  /* 这里怎么会自己往下呢 */
+  color: #989898;
+  font-size: 24rpx;
+  display: inline-block;
+  width: 226rpx;
+  text-align: right;
+  overflow: hidden;
+  position: absolute;
+  right: 370rpx;
+}
+
+.score  image {
+  height: 40rpx;
+  width: 40rpx;
+  margin-left: 34rpx;
+}
+
+/* .score .default {
+  display: inline-block;
+  height: 40rpx;
+  width: 40rpx;
+  margin-left: 34rpx;
+} */
+
+.empty-star {
+  src: "../../../../image/mine/icon-scoreEmptyStar.png";
+  /* background: red;  */
+}
+
+.full-star {
+  src: "../../../../image/mine/icon-scoreFullStar.png";
+  /* background: green;  */
+}
+
+.to-words {
+  box-sizing: border-box;
+  color: #1ab152;
+  font-size: 28rpx;
+  text-align: right;
+  height: 56rpx;
+  line-height: 30rpx;
+  position: relative;
+  border-bottom: solid #e6e6eb 1px;
+  margin-bottom: 19rpx;
+}
+
+.to-words navigator {
+  position: absolute;
+  right: 28rpx;
+}
+
+.to-words image {
+  position: absolute;
+  right: 10rpx;
+}
+
+.words {
+  box-sizing: border-box;
+  height: 240rpx;
+  /* text-align: center; */
+  padding-top: 12rpx;
+  position: relative;
+  color: #979797;
+  border-bottom: solid #e6e6eb 1px;
+  margin-bottom: 19rpx;
+}
+
+.last-words {
+  border-bottom: solid #e6e6eb 0;
+  margin-bottom: 0;
+}
+
+.words > view {
+  display: block;
+  box-sizing: border-box;
+  height: 182rpx;
+  width: 622rpx;
+  margin: 0 auto;
+  font-size: 23rpx;
+  text-align: left;
+  padding: 26rpx;
+  border: solid #d8d8d8 1px;
+}
+
+.words > text {
+  position: absolute;
+  top: 154rpx;
+  right: 86rpx;
+  font-size: 20rpx;
+}
+
+.dish-img-container {
+  box-sizing: border-box;
+  padding-top: 40rpx;
+  height: 148rpx;
+  border-top: 1px #e6e6eb solid;
+}
+
+.first-dish-img-container {
+  border-top: 0 #e6e6eb solid;
+}
+
+.dish-img {
+  display: block;
+  box-sizing: border-box;
+  background: #900a0a;
+  width: 108rpx;
+  height: 108rpx;
+  margin: 0 auto;
+  border-radius: 6rpx;
+}
+
+.dish-title {
+  box-sizing: border-box;
+  height: 110rpx;
+  padding-top: 37rpx;
+  position: relative;
+}
+
+.dishset-title-container {
+  background: #fff;
+}
+
+.dishset-title {
+  width: 426rpx;
+  margin: 0 auto;
+}
+
+.icon-push-arrow {
+  height: 12rpx;
+  width: 22rpx;
+  position: absolute;
+  top: 50rpx;
+  right: 13rpx;
+}
+
+.child-dish-title-container {
+  background: #fff;
+}
+
+.child-dish-title {
+  box-sizing: border-box;
+  height: 136rpx;
+  padding-top: 56rpx;
+  border-top: #efefef solid 1px;
+  width: 426rpx;
+  margin: 0 auto;
+}
+
+.notfirst-child-dish-title {
+  height: 61rpx;
+  padding-top: 12rpx;
+  border-top: #efefef solid 0;
+}
+
+.anonymous {
+  box-sizing: border-box;
+  padding-top: 4rpx;
+  height: 56rpx;
+  font-size: 27rpx;
+  color: #595959;
+  text-align: right;
+  padding-right: 38rpx;
+  position: relative;
+}
+
+.anonymous  text {
+  position: absolute;
+  top: 5rpx;
+  right: 10rpx;
+}
+
+.anonymous image {
+  position: absolute;
+  top: 10rpx;
+  right: 125rpx;
+  height: 32rpx;
+  width: 32rpx;
+}
+
+.submit {
+  box-sizing: border-box;
+  height: 151rpx;
+  background-color: #f7f8fc;
+  padding-top: 28rpx;
+  border-top: #dfe0e2 1px solid;
+}
+
+.submit-button {
+  box-sizing: border-box;
+  background-color: #1bb150;
+  width: 678rpx;
+  height: 90rpx;
+  border-radius: 6rpx;
+  color: white;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 90rpx;
+  margin: 0 auto;
+}

@@ -1,0 +1,52 @@
+<!--pages/mealorder/confirm/confirm.wxml-->
+<import src="/component/tipToast/tipToast.wxml" />
+<import src="/component/num/num.wxml" />
+<template is="tipToast" data="{{tipToastText:tipToastText,tipToastAnimationData:tipToastAnimationData}}"></template>
+<view class="container ">
+  <view class="cart">
+    <view class="cartlist">
+      <view style="background:{{wxssErrorInfo[index]==1?'#fbf9f6':'#fff'}}" class="cartlist-items {{wxssErrorInfo[index]==1?'cartlist-items-disable':''}}" height="56rpx" wx:for="{{cartListTit}}" wx:for-item="items">
+        <view class="cartlist-itemtit-disable" wx:if="{{wxssErrorInfo[index]==1}}">该餐次已过允许预定时间！</view>
+        <view class="cartlist-itemtit">{{items.tit}}</view>
+        <view class="cartlist-item" wx:for="{{cartList[items.info]}}" wx:for-index="itemIdx" style="display:{{item.num==0&&item.showNum0=='hidenum'? 'none' : 'block'}}">
+          <view class="cartlist-item-1">
+            <view style="flex:2">
+              <image src="/image/dian-g.png" style="margin-right:8rpx;width:10rpx;height:10rpx;"></image>{{item.name}}
+            </view>
+            <view style="flex:1;padding-top:32rpx;" catchtap="rotate" data-items="{{items.tit}}" data-itemidx="{{itemIdx}}">
+              <image data-items="{{items.tit}}" data-itemidx="{{itemIdx}}" class="{{rotate[items.tit][itemIdx]==2?'rotatedown':' rotateup'}}" wx:if="{{item.dish}}" src="/image/pic1.png" style="width:20rpx;height:16rpx"></image>
+            </view>
+            <view style="flex:2">
+              ￥{{item.discountPrice}} <text class="color-7c">/{{item.unit}} </text></view>
+            <view style="flex:1">
+              <template data="{{item,items}}" is="numBtn" />
+            </view>
+          </view>
+          <view class="cartlist-item-2" wx:if="{{rotate[items.tit][itemIdx]==2}}">{{item.dish}}</view>
+        </view>
+
+        <view class="address f30 color-green1" wx:if="{{deliveryornot[index]==1}}">
+          <view style="width:25%;">
+            配送餐:
+            <image bindtap="sltRadio" data-index="{{index}}" style="transform:translateY(20%);width:45rpx;height:45rpx" src="../../../image/{{showPicker[index]?'radio-arr':'radio'}}.png"></image>
+          </view>
+          <view wx:if="{{showPicker[index]}}" style="width:75%;" class="flex-between">
+            配送地点:
+            <picker bindchange="bindPickerChange" data-carTitInfo="{{items.info}}" data-itemsidx="{{index}}" mode="selector" range="{{items.deliveryDatalist}}" range-key="name" value="{{items.deliveryDatalist[sltArr][index].name}}">
+              <view> {{items.deliveryDatalist[sltArr[index]].name}}</view>
+            </picker>
+            <image src="../../../image/btn-slt.png"> </image>
+          </view>
+          <view><input wx:if="{{showPicker[index]}}" type="text" width="686rpx" class="remark" placeholder="添加备注" bindblur="inputRemark" data-carTitInfo="{{items.info}}" /></view>
+        </view>
+      </view>
+    </view>
+    <view class="money">
+      <text>共:<text>{{cartNum}}</text>份</text>
+      <text>合计:<text>￥{{cartMoney}}</text>
+      </text>
+      <button bindtap="toPay">提交订单</button>
+    </view>
+
+  </view>
+</view>

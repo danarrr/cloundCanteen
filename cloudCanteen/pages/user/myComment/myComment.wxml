@@ -1,0 +1,65 @@
+<!--pages/user/myDinner/myDinner.wxml-->
+<import src="/component/tipToast/tipToast.wxml" />
+<template is="tipToast" data="{{tipToastText:tipToastText,tipToastAnimationData:tipToastAnimationData}}"></template>
+<view class="nav">
+  <view class="titles">
+    <!--给选中的组件，即数组当前项的下标与selectedTitle相等的组件，定义样式名titles-selected-->
+    <block wx:for="{{titles}}">
+      <view id="{{index}}" bindtap="bindSelectedTitle" class="title">
+        {{item.chineseName}}
+      </view>
+    </block>
+  </view>
+  <!-- 导航指示器 -->
+  <view class="nav-indicator" style="width:{{indicatorWidth}}px;margin-left:{{indicatorMarginLeft}}px"> </view>
+</view>
+<view class="content">
+  <!--绑定事件处理函数bindchange-->
+  <swiper bindchange="bindPageChange" current='{{selectedTitle}}' style="height:{{swiperHeight}}px">
+    <block wx:for="{{titles}}" wx:for-item="title">
+      <swiper-item>
+
+        <!-- 未使用 -->
+        <view wx:if="{{title.englishName=='willEvaluate'}}" class="page {{title.englishName}}">
+          <view class="space">占位</view>
+          <text wx:if="{{willEvaluateData.data.length==0}}" class="color-97 f30">暂无数据</text>
+          <!-- 遍历，生成列表条目 -->
+          <block wx:for="{{willEvaluateData.data}}" wx:for-item="item">
+            <view class="one" data-consume-id="{{item.id}}" data-data-type="0" bindtap="toMyCommentDetail">
+              <image class="first-img" src="/image/mine/icon_mydinner.png"></image>
+              <view class="date">{{item.dateStr}}</view>
+              <image class="second-img" src="/image/mine/icon_address.png"></image>
+              <view class="one-canteen">{{item.canteenname}}</view>
+              <view class="one-togo">去评价</view>
+              <image class="third-img" src="/image/icon-arrow.png" style="width:14rpx;height:26rpx;"></image>
+            </view>
+          </block>
+            <!-- 加载完所有数据的提示 -->
+          <text wx:if="{{title.englishName=='willEvaluate' && willEvaluateData.nextPageNo==-1 && willEvaluateData.data.length!=0}}" class="bottomTip">小程序只显示最近31天的已就餐记录\n更多数据请登录电脑端个人平台或联系食堂管理员查询！</text>
+        </view>
+
+        <!-- 已使用 -->
+        <view wx:if="{{title.englishName=='evaluated'}}" class="page {{title.englishName}}">
+          <view class="space">占位</view>
+          <text wx:if="{{evaluatedData.data.length==0}}" class="color-97 f30">暂无数据</text>
+          <!-- 遍历，生成列表条目 -->
+          <block wx:for="{{evaluatedData.data}}" wx:for-item="item">
+            <view class="one" data-consume-id="{{item.id}}" data-data-type="1" bindtap="toMyCommentDetail">
+              <image class="first-img" src="/image/mine/icon_mydinner.png"></image>
+              <view class="date">{{item.dateStr}}</view>
+              <image class="second-img" src="/image/mine/icon_address.png"></image>
+              <view class="one-canteen">{{item.canteenname}}</view>
+              <view class="one-togo">去评价</view>
+              <image class="third-img" src="/image/icon-arrow.png" style="width:14rpx;height:26rpx;"></image>
+            </view>
+          </block>
+            <!-- 加载完所有数据的提示 -->
+          <text wx:if="{{title.englishName=='evaluated' && evaluatedData.nextPageNo==-1 && evaluatedData.data.length!=0}}" class="bottomTip">小程序只显示最近31天的已就餐记录\n更多数据请登录电脑端个人平台或联系食堂管理员查询！</text>
+        </view>
+
+      </swiper-item>
+    </block>
+  </swiper>
+ 
+  
+</view>

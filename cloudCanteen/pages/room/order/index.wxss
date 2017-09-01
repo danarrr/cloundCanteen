@@ -1,0 +1,68 @@
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #f6f9fb;
+  color: #939393;
+  display: flex;
+  /*flex-flow: row wrap;*//*justify-content: space-between;*/
+  flex-direction: column;
+  padding: 0;
+}
+
+.content {
+  height: 90%;
+  overflow-y: auto;
+}
+
+input {
+  display: block;
+  height: 60rpx;
+  text-overflow: clip;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: UICTFontTextStyleBody;
+  min-height: 1.4rem;
+  border: 1px solid #ccc;
+  width: 300rpx;
+}
+
+.contain {
+  width: 100%;
+  height: auto;
+  background: #fff;
+  border: 1rpx solid #e3e3e3;
+  margin-bottom: 16rpx;
+  padding: 0 32rpx;
+  box-sizing: border-box;
+  font-size: 24rpx;
+}
+
+.select-confirm {
+  width: 100%;
+  height: 95rpx;
+  line-height: 95rpx;
+  text-align: center;
+  background-color: #15c35a;
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  font-size: 30rpx;
+}
+
+.classname {
+  line-height: 84rpx;
+  border-bottom: 1rpx dashed #e5e5e5;
+}
+
+.classname span:first-child {
+  color: #222;
+}
+
+.classname span:nth-child(2) {
+  color: #969696;
+}
+
+.classname .classname-tit {
+  color: #19b34e;
+}

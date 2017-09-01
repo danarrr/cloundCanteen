@@ -1,0 +1,150 @@
+<!--pages/user/myDinner/myDinner.wxml-->
+<import src="/component/tipToast/tipToast.wxml" />
+<template is="tipToast" data="{{tipToastText:tipToastText,tipToastAnimationData:tipToastAnimationData}}"></template>
+<view class="nav">
+  <view class="titles">
+    <!--给选中的组件，即数组当前项的下标与selectedTitle相等的组件，定义样式名titles-selected-->
+    <block wx:for="{{titles}}">
+      <view id="{{index}}" bindtap="bindSelectedTitle" class="title">
+        {{item.chineseName}}
+      </view>
+    </block>
+  </view>
+  <!-- 导航指示器 -->
+  <view class="nav-indicator" style="width:{{indicatorWidth}}px;margin-left:{{indicatorMarginLeft}}px"> </view>
+</view>
+<view class="content">
+  <!--绑定事件处理函数bindchange-->
+  <swiper bindchange="bindPageChange" current='{{selectedTitle}}' style="height:{{swiperHeight}}px">
+    <block wx:for="{{titles}}" wx:for-item="title">
+      <swiper-item>
+
+        <!-- 待支付 -->
+        <view wx:if="{{title.englishName=='willPay'}}" class="page {{title.englishName}}">
+          <view class="tip">注：团体报餐修改请联系部门管理员</view>
+          <!-- 遍历，生成列表条目 -->
+          <text wx:if="{{willPayData.data.length==0}}" class="color-97 f30"> 暂无数据</text>
+          <block wx:for="{{willPayData.data}}" wx:for-item="item">
+            <navigator class="box" url="../myMealOrder/detailsPage/detailsPage?batchId={{item.batchId}}&id={{item.id}}&date={{item.orderDate}}&trade={{item.tradeName}}&tradeId={{item.tradeId}}&canteenId={{item.canteenId}}&canteen={{item.canteenname}}&dish={{item.detailDish}}&total={{item.money}}&fine={{item.fineMoney}}&from={{item.orderSource}}&address={{item.sendAddress}}&remark={{item.remark}}&paytype={{item.paytype}}&pageType=willPay">
+              <view class="one">
+                <view class="oneContainer">
+                  <view class="date">
+                    <image style="transform:translateY(10%);margin-right: 10rpx;width:30rpx;height:30rpx" src="/image/mine/icon_mydinner.png"></image>{{item.dateStr}}</view>
+                  <view class="tradeName">
+                    <image style="transform:translateY(10%);margin-right: 10rpx;width:24rpx;height:30rpx" src="/image/mine/icon_address.png"></image>{{item.canteenname}}</view>
+                </view>
+                <view class="threeContainer">
+                  <text>￥{{item.money}}</text>
+                </view>
+                <!-- <view bindtap="toReportDinner" data-canteen-id="{{item.canteenId}}" data-canteen-name="{{item.canteenName}}" class="oneCanteen">
+                去支付
+              </view> -->
+              </view>
+              <view class="two">
+                <view bindtap="toReportDinner" data-canteen-id="{{item.canteenId}}" data-canteen-name="{{item.canteenName}}" class="oneCanteen color-green">
+                  去支付
+                  <image src="/image/mine/btn1.png" style="transform:translateY(10%);height:28rpx;width:18rpx" />
+                </view>
+
+              </view>
+            </navigator>
+          </block>
+          <!-- 加载完所有数据的提示 -->
+          <text wx:if="{{title.englishName=='willPay' && willPayData.nextPageNo==-1&&willPayData.data.length!=0}}" class="bottomTip">小程序只显示最近31天的过期记录\n更多数据请登录电脑端个人平台或联系食堂管理员查询！</text>
+        </view>
+
+        <!-- 待消费 -->
+        <view wx:if="{{title.englishName=='willSpend'}}" class="page {{title.englishName}}">
+          <view class="space">占位</view>
+          <text wx:if="{{willSpendData.data.length==0}}" class="color-97 f30">暂无数据</text>
+          <!-- 遍历，生成列表条目 -->
+          <block wx:for="{{willSpendData.data}}" wx:for-item="item">
+            <navigator class="box" url="../myMealOrder/detailsPage/detailsPage?batchId={{item.batchId}}&id={{item.id}}&date={{item.orderDate}}&trade={{item.tradeName}}&tradeId={{item.tradeId}}&canteenId={{item.canteenId}}&canteen={{item.canteenname}}&dish={{item.detailDish}}&total={{item.money}}&fine={{item.fineMoney}}&from={{item.orderSource}}&address={{item.sendAddress}}&remark={{item.remark}}&paytype={{item.paytype}}&pageType=willSpend">
+              <view class="one">
+                <view class="oneContainer">
+
+                  <view class="date">
+                    <image style="transform:translateY(10%);margin-right: 10rpx;width:30rpx;height:30rpx" src="/image/mine/icon_mydinner.png"></image>{{item.dateStr}}</view>
+
+                  <view class="tradeName">
+                    <image style="transform:translateY(10%);margin-right: 10rpx;width:24rpx;height:30rpx" src="/image/mine/icon_address.png"></image>{{item.canteenname}}</view>
+                </view>
+                <view class="threeContainer">
+                  <text>￥{{item.money}}</text>
+                  <image src="/image/mine/btn1.png" />
+                </view>
+
+              </view>
+            </navigator>
+          </block>
+          <!-- 加载完所有数据的提示 -->
+          <text wx:if="{{title.englishName=='willSpend' && willSpendData.nextPageNo==-1&&willSpendData.data.length!=0}}" class="bottomTip">小程序只显示最近31天的过期记录\n更多数据请登录电脑端个人平台或联系食堂管理员查询！</text>
+        </view>
+
+        <!-- 已消费 -->
+        <view wx:if="{{title.englishName=='spened'}}" class="page {{title.englishName}}">
+          <view class="space">占位</view>
+          <text wx:if="{{spenedData.data.length==0}}" class="color-97 f30">暂无数据</text>
+          <!-- 遍历，生成列表条目 -->
+          <block wx:for="{{spenedData.data}}" wx:for-item="item">
+            <navigator class="box" url="../myMealOrder/detailsPage/detailsPage?batchId={{item.batchId}}&id={{item.id}}&date={{item.orderDate}}&trade={{item.tradeName}}&tradeId={{item.tradeId}}&canteenId={{item.canteenId}}&canteen={{item.canteenname}}&dish={{item.detailDish}}&total={{item.money}}&fine={{item.fineMoney}}&from={{item.orderSource}}&address={{item.sendAddress}}&remark={{item.remark}}&paytype={{item.paytype}}&pageType=spened">
+              <view class="one">
+                <view class="oneContainer">
+
+                  <view class="date">
+                    <image style="transform:translateY(10%);margin-right: 10rpx;width:30rpx;height:30rpx" src="/image/mine/icon_mydinner.png"></image>{{item.dateStr}}</view>
+
+                  <view class="tradeName">
+                    <image style="transform:translateY(10%);margin-right: 10rpx;width:24rpx;height:30rpx" src="/image/mine/icon_address.png"></image> {{item.canteenname}}</view>
+                </view>
+                <view class="threeContainer">
+                  <text>￥{{item.money}}</text>
+                  <image src="/image/mine/btn1.png" />
+                </view>
+              </view>
+            </navigator>
+          </block>
+          <!-- 加载完所有数据的提示 -->
+          <text wx:if="{{title.englishName=='spened' && spenedData.nextPageNo==-1&&spenedData.data.length!=0}}" class="bottomTip">小程序只显示最近31天的过期记录\n更多数据请登录电脑端个人平台或联系食堂管理员查询！</text>
+        </view>
+        <!-- 已过期 -->
+        <view wx:if="{{title.englishName=='overdue'}}" class="page {{title.englishName}}">
+          <view class="space">占位</view>
+          <text wx:if="{{overdueData.data.length==0}}" class="color-97 f30">暂无数据</text>
+          <!-- 遍历，生成列表条目 -->
+          <block wx:for="{{overdueData.data}}" wx:for-item="item">
+            <navigator class="box" url="../myMealOrder/detailsPage/detailsPage?batchId={{item.batchId}}&id={{item.id}}&date={{item.orderDate}}&trade={{item.tradeName}}&tradeId={{item.tradeId}}&canteenId={{item.canteenId}}&canteen={{item.canteenname}}&dish={{item.detailDish}}&total={{item.money}}&fine={{item.fineMoney}}&from={{item.orderSource}}&address={{item.sendAddress}}&remark={{item.remark}}&paytype={{item.paytype}}&pageType=overdue">
+              <view class="one">
+                <view class="oneContainer">
+
+                  <view class="date">
+                    <image style="transform:translateY(10%);margin-right: 10rpx;width:30rpx;height:30rpx" src="/image/mine/icon_mydinner.png"></image>{{item.dateStr}}</view>
+
+                  <view class="tradeName">
+                    <image style="transform:translateY(10%);margin-right: 10rpx;width:24rpx;height:30rpx" src="/image/mine/icon_address.png"></image>{{item.canteenname}}</view>
+                </view>
+                <view class="twoContainer">
+                  <text>￥{{item.money}}</text>
+                  <text class="color-green">已支付</text>
+                </view>
+                <view class="threeContainer">
+                  <image src="/image/icon-arrow.png" />
+                </view>
+              </view>
+            </navigator>
+          </block>
+          <!-- 加载完所有数据的提示 -->
+          <text wx:if="{{title.englishName=='overdue' && overdueData.nextPageNo==-1&&overdueData.data.length!=0}}" class="bottomTip">小程序只显示最近31天的过期记录\n更多数据请登录电脑端个人平台或联系食堂管理员查询！</text>
+        </view>
+
+
+
+
+
+
+      </swiper-item>
+    </block>
+  </swiper>
+
+
+</view>

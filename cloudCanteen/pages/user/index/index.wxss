@@ -1,0 +1,186 @@
+/* pages/user/index/index.wxss */
+
+.container {
+  /* position: relative; */
+  width: 100%;
+  height: 100%;
+  background-color: #F1F2F6;
+  color: #939393;
+  display: flex;
+  position: fixed;
+  /*flex-flow: row wrap;*//*justify-content: space-between;*/
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+
+/*.user-info{height: 215rpx;width:100%;background: url('/image/mine/bf.png')}*/
+
+.user-info {
+  height: 215rpx;
+  width: 100%;
+  padding: 15rpx 34rpx;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 24rpx;
+  position: fixed;
+  z-index: 100rpx;
+}
+
+.user-info .btnbox {
+  width: 137rpx;
+  height: 60rpx;
+  line-height: 58rpx;
+  background: #434343;
+  border: 1px solid #6f6f6f;
+  border-radius: 50rpx;
+  float: left;
+  padding: 0 18rpx;
+  box-sizing: border-box;
+}
+
+.user-info-bgpic {
+  z-index: 99rpx;
+  height: 300rpx;
+  margin-top: -100rpx;
+}
+
+.user-info-bgpic image {
+  height: 340rpx;
+  width: 100%;
+}
+
+.about-money {
+  /*height: 242rpx;*/
+  width: 100%;
+  background: #fff;
+  padding: 0rpx 35rpx;
+  box-sizing: border-box;
+  color: #868686;
+  border-bottom: 1px solid #ebecee;
+}
+
+.about-money text {
+  /* font-size: 24rpx; */
+  display: block;
+}
+
+.about-money .money {
+  border-bottom: 1px solid #f3f3f3;
+  text-align: center;
+  padding: 30rpx 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+
+.about-money .money>view {
+  width: 33.3%;
+  font-size: 27rpx;
+}
+
+.about-money .money text {
+  font-size: 27rpx;
+  color: #fe4a00;
+  line-height: 45rpx;
+}
+
+.about-money .notes {
+  padding: 15rpx 0;
+  line-height: 38rpx;
+}
+
+.my-mealorder {
+  height: 145rpx;
+  line-height: 40rpx;
+  margin: 19rpx 0;
+  /* border: 1px solid #fdfdfd; */
+  border-top: 1px solid #ebecee;
+  border-bottom: 1px solid #ebecee;
+  background: #fff;
+  font-size: 24rpx;
+  text-align: center;
+  display: flex;
+}
+
+.my-reportDinner {
+  border-top: 1px solid #ebecee;
+}
+
+.my-mealorder .mymealorder-goto {
+  margin-right: 16rpx;
+  width: 118rpx;
+  height: 145rpx;
+  line-height: 145rpx;
+  float: right;
+  text-align: right;
+  top: -50rpx;
+}
+
+.my-mealorder text, .my-reportDinner text, .my-room text, .my-comment text {
+  display: block;
+}
+
+.my-mealorder navigator {
+  padding: 35rpx 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.my-reportDinner, .my-room, .my-comment {
+  height: 145rpx;
+  line-height: 40rpx;
+  border-bottom: 1px solid #ebecee;
+  background: #fff;
+  font-size: 24rpx;
+  text-align: center;
+  padding: 28rpx 0 20rpx 0;
+  box-sizing: border-box;
+}
+
+.line-left {
+  border-left: 1px solid #eee;
+  line-height: 95rpx;
+}
+
+/* ----------------------------------------小红点 ↓ */
+
+.my-reportDinner navigator, .my-room navigator, .my-comment navigator {
+  position: relative;
+}
+
+.my-reportDinner .count, .my-room .count, .my-comment .count,
+.my-mealorder .count {
+  width: 30rpx;
+  height: 20rpx;
+  position: absolute;
+  background: #ff7200;
+  border: solid 2rpx white;
+  border-radius: 20rpx;
+  font-size: 15rpx;
+  color: white;
+  line-height: 20rpx;
+  text-align: center;
+}
+
+.my-mealorder .count {
+  top: 18rpx;
+  right: 30rpx;
+}
+
+.my-reportDinner .count {
+  top: -12rpx;
+  right: 60rpx;
+}
+
+.my-room .count, .my-comment .count {
+  top: -12rpx;
+  right: 110rpx;
+}
+
+.my-reportDinner .count-hide, .my-room .count-hide, .my-comment .count-hide,
+.my-mealorder .count-hide {
+  top: -999999px;
+  right: 999999px;
+}
+

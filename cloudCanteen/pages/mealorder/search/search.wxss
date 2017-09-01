@@ -1,0 +1,212 @@
+/* pages/mealorder/search/search.wxss */
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  color: #939393;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.search-page {
+  width: 100%;
+  background-color: #f0f3f5;
+}
+
+.search-page .nav-srh {
+  height: 120rpx;
+  background: #fff;
+  width: 100%;
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #eaeaea;
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-page .nav-srh input[type="text"] {
+  width: 690rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 10rpx;
+  background: #e9e9e9;
+  font-size: 30rpx;
+  padding: 0 78rpx 0 78rpx;
+  box-sizing: border-box;
+  display: block;
+}
+
+.search-page .nav-srh button {
+  display: none;
+}
+
+.search-page .nav-srh label {
+  transform: translate3d(630rpx, -58rpx, 0);
+  display: block;
+  width: 100rpx;
+  background: #fff;
+  font-size: 30rpx;
+  line-height: 60rpx;
+  padding: 0;
+  color: #626262;
+}
+
+.search-page .nav-srh image:first-child {
+  box-sizing: border-box;
+  width: 60rpx;
+  height: 60rpx;
+  padding: 12rpx;
+  float: left;
+  z-index: 999;
+  position: absolute;
+}
+
+.search-page .nav-srh .clear-input {
+  box-sizing: border-box;
+  width: 60rpx;
+  height: 60rpx;
+  padding: 22rpx;
+  z-index: 999;
+  top: 19rpx;
+  right: 30rpx;
+  position: absolute;
+}
+
+.search-page .nav-srh .has-text {
+  top: -1000rpx;
+  right: -1000rpx;
+}
+
+.search-page  .tit {
+  display: flex;
+  justify-content: space-between;
+  padding: 15rpx;
+  border-bottom: 1rpx solid #dcdcdc;
+  line-height: 45rpx;
+}
+
+.search-page  .tit>view {
+  width: 158rpx;
+  text-align: center;
+  line-height: 45rpx;
+  border: 1rpx solid #dcdcdc;
+  border-radius: 10rpx;
+}
+
+.search-page .hot {
+  /* height: 97rpx; */
+  /* line-height: 97rpx; */
+  padding:26rpx 26rpx;
+  background: #fff;
+  box-sizing: border-box;
+  font-size: 26rpx;
+  color: #595959;
+  border-bottom: 1px solid #a9a9a9;
+}
+
+.search-page .history, .search-page .content-srh {
+  font-size: 24rpx;
+  line-height: 36rpx;
+  padding: 20rpx;
+  background: #fff;
+  margin-top: 14rpx;
+  height: 70%;
+  overflow-y: auto;
+}
+
+.search-page .history .keyword text {
+  width: 285rpx;
+  display: inline-block;
+  margin: 25rpx 0;
+  padding: 0rpx 34rpx;
+  line-height: 30rpx;
+  color: #636363;
+  /*border-bottom: 1rpx solid #dcdcdc;*/
+}
+
+.search-page .history .tit image {
+  transform: translateY(7rpx);
+}
+
+.search-page .history .keyword text:nth-child(odd) {
+  border-right: 1rpx solid #dcdcdc;
+}
+
+.search-page .history image {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.search-page .result-empty {
+  margin-top: 176rpx;
+}
+
+.search-page .result-empty image {
+  width: 223rpx;
+  height: 178rpx;
+  display: inline-block;
+  margin-left: 50%;
+  transform: translateX(-110.5rpx);
+}
+
+.search-page .result-empty text {
+  margin-top: 49rpx;
+  margin-left: 25rpx;
+}
+
+.search-page .content-srh .nav-right-itembox {
+  padding: 2rpx 15rpx 15rpx 15rpx;
+  width: 500rpx;
+  float: right;
+}
+
+.nav-right .nav-right-items, .content-srh .nav-right-items {
+  border-bottom: 1rpx solid #dcdcdc;
+  padding: 30rpx 30rpx 0rpx 0;
+  box-sizing: border-box;
+  display: inline-block;
+  text-align: left;
+}
+
+.nav-right .nav-right-good, .content-srh .nav-right-good {
+  float: left;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 20rpx;
+}
+
+.nav-right .nav-right-itembox {
+  padding: 2rpx 15rpx 15rpx 15rpx;
+  width: 300rpx;
+  float: right;
+}
+
+.nav-right .nav-right-tit, .content-srh .nav-right-tit {
+  color: #1b1b1b;
+  font-size: 30rpx;
+  line-height: 40rpx;
+}
+
+.nav-right .nav-right-price, .content-srh .nav-right-price {
+  color: #ff7300;
+  font-size: 40rpx;
+  line-height: 80rpx;
+}
+
+.nav-right .nav-right-discount {
+  color: #979797;
+  font-size: 28rpx;
+  line-height: 80rpx;
+}
+
+.nav-right text, .content-srh text {
+  color: #999;
+  font-size: 30rpx;
+  line-height: 28rpx;
+  display: inline-block;
+}

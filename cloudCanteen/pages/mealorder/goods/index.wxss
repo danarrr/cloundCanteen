@@ -1,0 +1,368 @@
+/**index.wxss**/
+@import "/component/tipToast/tipToast.wxss";
+
+.container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  color: #939393;
+  display: flex;
+  /*flex-flow: row wrap;*//*justify-content: space-between;*/
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+
+.container .main {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  height: 100%;
+  overflow: hidden;
+}
+
+/*.content{
+  display: flex;
+  justify-content: space-between
+}*/
+
+.nav-top {
+  flex: 0 0 auto;
+  width: 100%;
+  height: 70rpx;
+  display: flex;
+  padding: 21rpx 0;
+  border-bottom: 1rpx solid #c9c9c9;
+}
+
+.nav-top .nav-top-item {
+  width: 206rpx;
+  height: 70rpx;
+  /*line-height: 61rpx;*/
+  text-align: center;
+  color: #000;
+  font-size: 28rpx;
+  border-right: 1rpx solid #cacaca;
+  /* white-space: nowrap; */
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding:0 10rpx;
+}
+
+/*.nav-top .nav-top-item .item-black {
+  color: #2e2e2e;
+  display: inline-block;
+  font-size: 24rpx;
+  width: 215rpx;
+}
+
+.nav-top .nav-top-item .item-gray {
+  color: #7a7a7a;
+  font-size: 22rpx;
+}*/
+
+.nav-top .triangle {
+  transform: translate3d(-32rpx, 45rpx, 0);
+  width: 0;
+  height: 0;
+  border-bottom: 17rpx solid #a3d5b7;
+  border-left: 17rpx solid transparent;
+}
+
+.nav-top image {
+  padding: 16rpx 42rpx 16rpx 16rpx;
+  width: 90rpx;
+  height: 64rpx;
+  box-sizing: border-box;
+  margin-left: -15rpx;
+}
+
+.nav-left {
+  width: 210rpx;
+  height: 100%;
+  overflow-y: auto;
+  background: #f0f0f0;
+  text-align: center;
+  font-weight: bold;
+  -webkit-overflow-scrolling: touch;
+}
+
+.nav-left .totalnum {
+  height: 28rpx;
+  line-height: 28rpx;
+  padding: 0rpx 15rpx;
+  border-radius: 20rpx;
+  font-size: 22rpx;
+  transform: translate3d(155rpx, 10rpx, 0);
+  color: #fff;
+  width: auto;
+  background: #15c35a;
+  position: absolute;
+}
+
+.nav-left .nav-left-items {
+  height: 65rpx;
+  line-height: 65rpx;
+  padding: 28rpx 0;
+  border-bottom: 1rpx solid #dedede;
+  font-size: 27rpx;
+}
+
+.nav-left .nav-left-items.active {
+  background: #fff;
+  color: #1bb150;
+}
+
+.nav-right {
+  width: 530rpx;
+  height: 97%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-left: 30rpx;
+  background: #fff;
+  box-sizing: border-box;
+  /*border:1rpx solid red*/
+}
+
+.nav-right .nav-right-items, .content-srh .nav-right-items {
+  border-bottom: 1rpx solid #dcdcdc;
+  padding: 30rpx 30rpx 0rpx 0;
+  box-sizing: border-box;
+  display: inline-block;
+  text-align: left;
+}
+
+.nav-right .nav-right-good, .content-srh .nav-right-good {
+  float: left;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 20rpx;
+}
+
+.nav-right .nav-right-itembox {
+  padding: 2rpx 15rpx 15rpx 15rpx;
+  width: 300rpx;
+  float: right;
+}
+
+.nav-right .nav-right-tit, .content-srh .nav-right-tit {
+  color: #1b1b1b;
+  font-size: 30rpx;
+  line-height: 40rpx;
+}
+
+.nav-right .nav-right-price, .content-srh .nav-right-price {
+  color: #ff7300;
+  font-size: 40rpx;
+  line-height: 80rpx;
+}
+
+.nav-right .nav-right-discount {
+  color: #979797;
+  font-size: 28rpx;
+  line-height: 70rpx;
+}
+
+.nav-right text, .content-srh text {
+  color: #999;
+  font-size: 30rpx;
+  line-height: 28rpx;
+  display: inline-block;
+}
+
+.cart {
+  width: 100%;
+  /*height:  102rpx;*/
+  z-index: 99999999;
+
+  /*position:fixed;*//*display: block;*/
+  flex: 0 0 auto;
+}
+
+.cart .money {
+  width: 100%;
+  height: 102rpx;
+  background: #fff;
+  border-top: 1rpx solid #bfbfbf;
+}
+
+.cart .cartnum {
+  position: fixed;
+  transform: translate3d(8rpx, -11rpx, 0);
+  margin-left: 40rpx;
+}
+
+.cart .cartnum text {
+  height: 38rpx;
+  line-height: 40rpx;
+  background: #ff7200;
+  padding: 0 10rpx;
+  display: inline-block;
+  border-radius: 20rpx;
+  color: #fff;
+  font-size: 24rpx;
+  transform: translate(-50%, -20%);
+  z-index: 999;
+  position: fixed;
+}
+
+.cart .triangle-up {
+  width: 0;
+  height: 0;
+  border-left: 15rpx solid transparent;
+  border-right: 15rpx solid transparent;
+  border-bottom: 23rpx solid #fff;
+  transform: translate3d(70rpx, 0rpx, 0);
+}
+
+.cart .carticon {
+  width: 93rpx;
+  height: 93rpx;
+  /* transform: translate3d(36rpx, -11rpx, 0); *//*z-index: 999;*/
+}
+
+.cart .money>text {
+  font-size: 28rpx;
+  line-height: 102rpx;
+  margin-left: 150rpx;
+  display: inline-block;
+}
+
+.cart .money>text text {
+  font-size: 30rpx;
+  color: #fd4b00;
+}
+
+.cart button {
+  float: right;
+  width: 279rpx;
+  height: 100%;
+  background: #24b457;
+  color: #fff;
+  border-radius: 0;
+}
+
+.cart .title {
+  display: flex;
+  height: 88rpx;
+  line-height: 88rpx;
+  justify-content: space-between;
+  font-size: 28rpx;
+  padding: 0 28rpx 0 18rpx;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+.cart .title image {
+  width: 29rpx;
+  height: 29rpx;
+  color: #9a9a9a;
+}
+
+.cart #cartAnimation {
+  transform: translateY(30rpx);
+  /*display: block;*//*position:relative;*/
+}
+
+.cart .cartlist {
+  background: #fff;
+  height: 700rpx;
+  display: block;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.cart .cartlist-itemtit {
+  height: 56rpx;
+  line-height: 56rpx;
+  border-left: 8rpx solid #53c123;
+  font-size: 25rpx;
+  border-top: 1rpx solid #d7d7d7;
+  border-bottom: 1rpx solid #d7d7d7;
+  padding: 0rpx 28rpx;
+  display: inline-block;
+  color: #222;
+  width: 100%;
+}
+
+.cart .cartlist-items {
+  background: #fff;
+}
+
+.cart .cartlist-item {
+  height: 88rpx;
+  line-height: 88rpx;
+  width: 100%;
+  /*display: inline-block;*/
+  display: flex;
+  padding: 0 18rpx;
+  box-sizing: border-box;
+  color: #222;
+  border-bottom: 1rpx solid #ececec;
+  font-size: 29rpx;
+}
+
+/*筛选项隐藏 显示动画 start*/
+
+@keyframes slidown {
+  from {
+    transform: translateY(0%);
+  }
+
+  to {
+    transform: translateY(100%);
+  }
+}
+
+.slidown {
+  display: block;
+  animation: slidown 0.5s ease-in both;
+}
+
+@keyframes slidup {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0%);
+  }
+}
+
+.slidup {
+  display: block;
+  animation: slidup 0.5s ease-in both;
+}
+
+@keyframes slidright {
+  from {
+    margin-left: 150rpx;
+  }
+
+  to {
+    margin-left: 50rpx;
+  }
+}
+
+.slidright {
+  display: block;
+  animation: slidright 0.5s ease-in both;
+}
+
+@keyframes slidleft {
+  from {
+    margin-left: 20rpx;
+  }
+
+  to {
+    margin-left: 150rpx;
+  }
+}
+
+.slidleft {
+  display: block;
+  animation: slidleft 0.2s ease-in both;
+}
+
+/*筛选项隐藏 显示动画 end*/

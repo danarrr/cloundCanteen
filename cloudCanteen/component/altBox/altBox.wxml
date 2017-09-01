@@ -1,0 +1,17 @@
+<!--component/altbox/altbox.wxml-->
+<template name="altBox"  >
+  <!-- <view class="{{showAltBox==true?'bg-opacity':''}}"></view> -->
+  <view class="bg-opacity"></view>
+  <view class="box-alter" >
+    <view class="content">
+      <!-- <text wx:if="showTit">{{title}}</text> -->
+      <text class="altBox-tit" wx:if="{{altBoxData.title}}">{{showAltBox}}{{altBoxData.title}}</text>
+      <input wx:if="{{altBoxData.showPwd}}" type="text" password="true" bindinput="_altBoxPwdVal"></input>
+      <text class="altBox-text" wx:if="{{altBoxData.text}}" >{{altBoxData.text}}</text>
+      <input wx:if="" type="text" password="true"></input>
+    </view>
+    <view class="btn">
+      <view bindtap="_altBoxHide">取消</view><view class="btn-confirm" bindtap="_altBoxBindSumbit">确定</view>
+    </view>
+  </view>
+</template>

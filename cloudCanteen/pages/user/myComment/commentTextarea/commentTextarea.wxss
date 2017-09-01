@@ -1,0 +1,36 @@
+/* pages/user/myComment/commentTextarea/commentTextarea.wxss */
+.page-container {
+  height: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.-words {
+  box-sizing: border-box;
+  height: 240rpx;
+  /* text-align: center; */
+  padding-top: 12rpx;
+  position: relative;
+  color: #979797;
+  border-bottom: solid #e6e6eb 1px;
+  margin-bottom: 19rpx;
+}
+
+.-words > textarea {
+  display: block;
+  box-sizing: border-box;
+  height: 182rpx;
+  width: 622rpx;
+  margin: 0 auto;
+  font-size: 23rpx;
+  text-align: left;
+  padding: 26rpx;
+  border: solid #d8d8d8 1px;
+}
+
+.-words > text {
+  position: absolute;
+  top: 154rpx;
+  right: 86rpx;
+  font-size: 20rpx;
+}

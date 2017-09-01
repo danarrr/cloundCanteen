@@ -1,0 +1,70 @@
+<import src="/component/tipToast/tipToast.wxml" />
+<view class="container ">
+  <view class="content">
+    <!--餐次信息-->
+    <view class="contain">
+      <view class="classname">
+        <view class="classname-tit">
+          <image src="/image/room/icon-trade.png" style="height:31rpx;width:24rpx;transform:translateY(20%);margin-right:20rpx"></image>餐次信息</view>
+      </view>
+      <view class="classname">
+        <span>食堂：</span>
+        <span>{{canteenListTit}}</span>
+      </view>
+      <view class="classname">
+        <span>日期：</span>
+        <span>{{date}}</span>
+      </view>
+      <view class="classname">
+        <span>餐次：</span>
+        <span>{{mealListTit}}</span>
+      </view>
+    </view>
+
+    <!--包房信息-->
+    <view class="contain">
+      <view class="classname">
+        <view class="classname-tit">
+          <image src="/image/room/icon-room.png" style="height:31rpx;width:31rpx;transform:translateY(20%);margin-right:20rpx"></image>包房信息</view>
+      </view>
+      <view class="classname">
+        <span>包房名称：</span>
+        <span>{{roomlist.name}}</span>
+      </view>
+      <view class="classname">
+        <span>包房类别：</span>
+        <span>{{roomlist.typeName}}</span>
+      </view>
+      <view class="classname">
+        <span>人数范围：</span>
+        <span>{{roomlist.numMin}}~{{roomlist.numMax}}</span>
+      </view>
+      <view class="classname">
+        <span>实际就餐人数：</span>
+        <input style="white-space:nowrap;display:inline-block;transform:translateY(30%)" type='number' name='numPeople' bindinput="bindNumInput" />
+      </view>
+    </view>
+
+    <!--预订人信息-->
+    <view class="contain">
+      <view class="classname">
+        <view class="classname-tit">
+          <image src="/image/room/icon-usr.png" style="height:31rpx;width:31rpx;transform:translateY(20%);margin-right:20rpx"></image>预订人信息</view>
+      </view>
+      <view class="classname">
+        <span style="white-space:nowrap;">预订人：</span>
+        <input style="white-space:nowrap;display:inline-block;transform:translateY(30%)" name='reserveName' bindinput="bindNameInput" value="{{reserveName}}" />
+      </view>
+      <view class="classname">
+        <span style="white-space:nowrap;">联系电话：</span>
+        <input style="white-space:nowrap;display:inline-block;transform:translateY(30%)" type='digit' maxlength='11' name='phone' bindinput="bindPhoneInput" value="{{phone}}" />
+      </view>
+
+    </view>
+  </view>
+  <view class="footer">
+    <button class="select-confirm" bindtap="submit">确认</button>
+  </view>
+</view>
+<!--【tipToast】直接复制-->
+<template is="tipToast" data="{{tipToastText:tipToastText,tipToastAnimationData:tipToastAnimationData}}"></template>

@@ -1,0 +1,37 @@
+<!--pages/login/login.wxml-->
+<!--【tipToast】直接复制-->
+<import src="/component/tipToast/tipToast.wxml" />
+
+<view class="container" class="login">
+  <view class="logo">
+    <image src="/image/login-logo.png" />
+  </view>
+
+  <form bindsubmit="loginBtn">
+    <view class="section">
+      <input class="login-input" name="username" type="text" placeholder="账号" focus class="bg-userinfo" value="TS012" />
+      <image class="icon-usr" src="/image/icon-usr.png" />
+    </view>
+    <view class="section">
+      <input class="login-input" name="password" password="true" placeholder="密码" class="bg-pw" value="666666" />
+      <image class="icon-pw" src="/image/icon-password.png" />
+    </view>
+    <view class="section" wx:if="{{needVerifyCode}}">
+      <input class="verifyCodeInput" name="verifyCode" placeholder="验证码" />
+      <image class="icon-verify" src="/image/icon-verify.png" />
+      <image class="verifyImg" src="{{verifyImg}}" catchtap="getVerify" />
+    </view>
+
+    <view class="section">
+      <button formType="submit">登录</button>
+      <!--<navigator open-type="switchTab" url="/pages/index/index"><button >登录</button></navigator>-->
+    </view>
+  </form>
+
+  <view>
+    <text bindtap="forgetPwd">忘记密码？</text>
+  </view>
+  
+  <!--【tipToast】直接复制-->
+  <template is="tipToast" data="{{tipToastText:tipToastText,tipToastAnimationData:tipToastAnimationData}}"></template>
+</view>

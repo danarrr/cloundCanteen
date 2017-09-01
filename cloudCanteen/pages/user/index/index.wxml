@@ -1,0 +1,128 @@
+<!--pages/user/index/index.wxml-->
+<import src="../../../component/tabBar/tabBar.wxml" />
+<view class="container">
+  <view class="user-info">
+    <view class="flex-between" style="margin-bottom:40rpx">
+      <view style="display:flex;flex-direction: column">
+        <text>{{userInfo.name}}</text><text>{{userInfo.departmentName}}</text>
+      </view>
+      <view bindtap="toSetting">
+        <image src="/image/mine/icon-setting.png" style="width:42rpx;height:40rpx;transform:translateY(20%)"></image>
+      </view>
+    </view>
+    <view class="flex-between" style="line-height:60rpx">
+      <view>
+        <!-- <navigator url="/pages/user/recharge/recharge" class="btnbox"  >
+          <image style="width:27rpx;height:35rpx;transform:translateY(20%)" src="/image/mine/icon-recharge.png"></image> 充值</navigator> -->
+        <navigator url="/pages/user/transferred/transferred?selfMoney={{selfMoney}}" class="btnbox"  >
+          <image style="width:34rpx;height:15rpx;" src="/image/mine/icon-transfer.png"></image> 转账</navigator>
+      </view>
+      <view style="width:19%;font" bindtap="toTransactionFlow">饭卡流水
+        <image style="width:16rpx;height:24rpx;transform:translateY(20%);margin-left:9rpx;" mode="aspectFit" src="/image/mine/btn1.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class="user-info-bgpic"><image src="/image/mine/bg.png"></image></view>
+  <view class="about-money">
+    <view class="money">
+      <view style="border-right:1px solid #E8E8E8">
+        <text>￥{{selfMoney}}</text>充值余额</view>
+      <view style="border-right:1px solid #E8E8E8">
+        <text>￥{{subsidyMoney}}</text>补贴余额</view>
+      <view>
+        <text>￥{{overdraft}}</text>透支余额</view>
+    </view>
+    <view class="notes">
+      <text class="f24">冻结金额：￥{{frozenMoney}}</text>
+      <text class="f21">*预定菜品后,饭卡账户内对应冻结的金额,取消订单后将退回对应的余额！</text>
+    </view>
+  </view>
+  <!--我的订餐-->
+  <view class="my-mealorder" wx:if="{{permission.isOrder==1}}">
+    <navigator url="/pages/user/myMealOrder/myMealOrder?index=0" style="flex:1">
+      <image style="width:46rpx;height:36rpx" src="/image/mine/icon-toPay.png"></image>
+      <text>待支付</text>
+      <!-- {{orderNotPayCount<=0? count-hide:''}} -->
+      <view class="count {{orderNotPayCount<=0? 'count-hide':''}}">{{orderNotPayCount}}</view>
+    </navigator>
+    <navigator url="/pages/user/myMealOrder/myMealOrder?index=1" style="flex:1">
+      <image style="width:43rpx;height:36rpx" src="/image/mine/icon-toCart.png"></image>
+      <text>待消费</text>
+      <view class="count {{orderNotConsumeCount<=0? 'count-hide':''}}">{{orderNotConsumeCount}}</view>
+    </navigator>
+    <navigator url="/pages/user/myMealOrder/myMealOrder?index=2" style="flex:1">
+      <image style="width:38rpx;height:36rpx" src="/image/mine/icon-toConsumed.png"></image>
+      <text>已消费</text>
+    </navigator>
+    <navigator url="/pages/user/myMealOrder/myMealOrder?index=3" style="flex:1">
+      <image style="width:38rpx;height:38rpx" src="/image/mine/icon-overdue.png"></image>
+      <text>已过期</text>
+    </navigator>
+    <view style="width:20%;" bindtap="toMealOrder">
+      <image style="width:15rpx;height:145rpx" src="/image/mine/line.png"></image>
+      <view class="mymealorder-goto">我的订餐
+        <image style="width:16rpx;height:23rpx;" src="/image/mine/btn1.png"></image>
+      </view>
+    </view>
+  </view>
+  <!--我的订餐-->
+  <!--我的报餐-->
+  <view class="my-reportDinner flex-between" wx:if="{{permission.isApply==1}}">
+    <navigator url="/pages/user/myDinner/myDinner?index=0" style="flex:1">
+      <image style="width:46rpx;height:36rpx" src="/image/mine/icon-wjc.png"></image>
+      <text>未就餐</text>
+      <view class="count {{reportNotRepastCount<=0? 'count-hide':''}}">{{reportNotRepastCount}}</view>
+    </navigator>
+    <navigator url="/pages/user/myDinner/myDinner?index=1" style="flex:1">
+      <image style="width:32rpx;height:36rpx" src="/image/mine/icon-yjc.png"></image>
+      <text>已就餐</text>
+    </navigator>
+    <navigator url="/pages/user/myDinner/myDinner?index=2" style="flex:1">
+      <image style="width:38rpx;height:36rpx" src="/image/mine/icon-toConsumed.png"></image>
+      <text>已过期</text>
+    </navigator>
+    <view bindtap="toMyDinner" style="width:20%;" class="line-left">
+      我的报餐
+      <image style="width:16rpx;height:23rpx;transform:translateY(15%)" src="/image/mine/btn1.png"></image>
+    </view>
+  </view>
+  <!--我的报餐-->
+  <!--我的包房-->
+  <view class="my-room flex-between" wx:if="{{permission.isRoomBook==1}}">
+    <navigator url="/pages/user/myRoom/index?index=0" style="flex:1">
+      <image style="width:28rpx;height:37rpx" src="/image/mine/icon-nouse.png"></image>
+      <text>未使用</text>
+      <view class="count {{roomNotUsedCount<=0? 'count-hide':''}}">{{roomNotUsedCount}}</view>
+    </navigator>
+    <navigator url="/pages/user/myRoom/index?index=1" style="flex:1">
+      <image style="width:28rpx;height:37rpx" src="/image/mine/icon-used.png"></image>
+      <text>已使用</text>
+    </navigator>
+
+    <view bindtap="toMyRoom" style="width:20%;" class="line-left">
+
+      我的包房
+      <image style="width:16rpx;height:23rpx;transform:translateY(15%)" src="/image/mine/btn1.png"></image>
+    </view>
+  </view>
+  <!--我的包房-->
+  <!--我的评价-->
+  <view class="my-comment flex-between" wx:if="{{permission.isEval==1}}" >
+    <navigator url="/pages/user/myComment/myComment?index=0" style="flex:1">
+      <image style="width:42rpx;height:36rpx" src="/image/mine/icon-nocommet.png"></image>
+      <text>未评价</text>
+      <view class="count {{orderNotEvaluateCount<=0? 'count-hide':''}}">{{orderNotEvaluateCount}}</view>
+    </navigator>
+    <navigator url="/pages/user/myComment/myComment?index=1" style="flex:1">
+      <image style="width:42rpx;height:36rpx" src="/image/mine/icon-commented.png"></image>
+      <text>已评价</text>
+    </navigator>
+
+    <view bindtap="toMyComment" style="width:20%;" class="line-left">
+      我的评价
+      <image style="width:16rpx;height:23rpx;transform:translateY(15%)" src="/image/mine/btn1.png"></image>
+    </view>
+  </view>
+  <!--我的评价-->
+</view>
+<template data="{{tabBar: tabBar}}" is="tabBar" />

@@ -1,0 +1,148 @@
+/* pages/reportDinner/index/index.wxss */
+@import "/component/tipToast/tipToast.wxss";
+
+.container {
+  background: #f6f9fb;
+  display: flex;
+  padding: 0;
+  flex-direction: column;
+}
+
+.header {
+  flex: 0 0 auto;
+  width: 100%;
+  height: 47rpx;
+  padding: 24rpx 0rpx;
+  display: flex;
+  border-bottom: 1rpx solid #c9c9c9;
+}
+
+.header  .nav-top-item {
+  width: 206rpx;
+  text-align: center;
+  color: #636363;
+  font-size: 32rpx;
+  height: 47rpx;
+  line-height: 47rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.header  .triangle {
+  /*三角型*/
+  transform: translate3d(-32rpx, 30rpx, 0);
+  width: 0;
+  height: 0;
+  border-bottom: 17rpx solid #a3d5b7;
+  border-left: 17rpx solid transparent;
+}
+
+.header .btn-sltall {
+  height: 47rpx;
+  line-height: 47rpx;
+  color: #959595;
+  font-size: 24rpx;
+  border: 1rpx solid #c9c9c9;
+  border-radius: 10rpx;
+  padding: 0 20rpx;
+}
+
+.main {
+  display: flex;
+  height: 100%;
+  overflow: auto;
+  text-align: center;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.main .nav-left {
+  width: 207rpx;
+  /* position:fixed; 
+   float:left;  *//* border-right:1rpx solid #c9c9c9; */
+}
+
+.nav-left .nav-left-item {
+  /* height: 100rpx; */
+  height: 96rpx;
+  /*line-height: 50rpx;*/
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #c9c9c9;
+  border-right: 1rpx solid #c9c9c9;
+}
+
+.main .nav-right {
+  width: 541rpx;
+  overflow-x: auto;
+  /*width: auto;*//* overflow-x: auto; *//* overflow-y:hidden; *//* display: inline-block; *//*display: flex;*//*flex-flow: row wrap;*//*justify-content: space-between;*/
+}
+
+.nav-right-tit {
+  overflow-x: auto;
+  border-top: 1rpx solid #c9c9c9;
+  border-bottom: 1rpx solid #c9c9c9;
+  height: 65rpx;
+  padding: 0rpx 12rpx;
+  line-height: 65rpx;
+  background: #fff;
+  font-size: 24rpx;
+  color: #6c6c6c;
+}
+
+.nav-right image {
+  width: 72rpx;
+  height: 72rpx;
+  margin: 30rpx;
+}
+
+.nav-right-items {
+  /*display: inline-block*/
+  float: left;
+}
+
+.test {
+  width: 1100rpx;
+}
+
+.footer {
+  width: 100%;
+  flex: 0 0 auto;
+  height: 151rpx;
+  border-top: 1px solid #e2e2e2;
+  padding-top: 42rpx;
+  box-sizing: border-box;
+  margin-bottom: 15%;
+  z-index: 99;
+}
+
+.footer button {
+  width: 676rpx;
+  background: #1bb150;
+  color: #fff;
+  font-size: 32rpx;
+}
+
+.area-change-report {
+  width: 100%;
+  height: 375rpx;
+  background: #f6f9fb;
+  border-top: 1rpx solid #e2e2e2;
+}
+
+.area-change-report button {
+  width: 676rpx;
+  height: 90rpx;
+  font-size: 32rpx;
+}
+
+.area-change-report .first-button {
+  margin-top: 30rpx;
+  background: #1bb150;
+  color: #fff;
+}
+
+.area-change-report .second-button {
+  margin-top: 20rpx;
+  background: #fff;
+  color: #636363;
+}

@@ -1,0 +1,87 @@
+/* pages/user/transferred/transferred.wxss */
+@import "/component/altBox/altBox.wxss";
+@import "/component/tipToast/tipToast.wxss";
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #f6f9fb;
+  color: #939393;
+  display: flex;
+  /*flex-flow: row wrap;*//*justify-content: space-between;*/
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+
+.transfer {
+  font-size: 28rpx;
+  color: #414141;
+}
+
+.box-info {
+  border-top: 1rpx solid #e7e7e7;
+  border-bottom: 1rpx solid #e7e7e7;
+  background: #fff;
+  margin-top: 17rpx;
+  padding: 0 37rpx;
+}
+
+.box-info>view {
+  border-bottom: 1rpx solid #e7e7e7;
+}
+
+.transferid input {
+  border: 1rpx solid #c7c7c7;
+  color: #1b1b1b;
+  height: 64rpx;
+  line-height: 64rpx;
+  padding: 0 21rpx;
+  width: 478rpx;
+  box-sizing: border-box;
+  margin-top: 23rpx;
+}
+
+.transfermoney input {
+  width: 604rpx;
+  height: 82rpx;
+  line-height: 82rpx;
+  color: #1bb150;
+  margin-top: 38rpx;
+}
+
+.transfer button {
+  width: 679rpx;
+  display: block;
+  border-radius: 5rpx;
+  margin-top: 35rpx;
+}
+
+.selfmoney {
+  padding: 42rpx 0;
+  text-align: center;
+}
+
+.selfmoney text {
+  text-align: center;
+  display: block;
+  line-height: 100rpx;
+}
+.container  .bottom{
+  align-items: center;
+  position:fixed;
+  bottom:20rpx;
+left:20rpx;
+}
+.container  .bottom button{
+  margin-left:12rpx;
+  background: #1bb150
+}
+.container  .bottom image{
+  margin-left:200rpx;
+  margin-top:55rpx;
+  /* transform:translate(550%,120%); */
+  position:fixed;
+  z-index:999
+}

@@ -1,0 +1,144 @@
+/* myTransactionFlow.wxss */
+@import "/component/tipToast/tipToast.wxss";
+
+.contain {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  height: 92%;
+  width: 100%;
+  position: absolute;
+  top: 100rpx;
+  padding-left: 20rpx;
+  background: #f6f9fb
+}
+
+.topView {
+  position: absolute;
+  width: 100%;
+  height: 94rpx;
+  border-bottom: 1rpx solid #c9c9c9;
+  text-align: center;
+  background-color: #fff;
+  font-size: 28rpx;
+}
+
+.accountTypeView {
+  width: 49%;
+  float: left;
+  height: 94rpx;
+  line-height: 94rpx;
+  background-color: #fff;
+}
+
+.transTypeView {
+  width: 49%;
+  float: right;
+  height: 94rpx;
+  line-height: 94rpx;
+  background-color: #fff;
+}
+
+.lineView {
+  display: inline-block;
+  position: relative;
+  top: 28rpx;
+  width: 1rpx;
+  height: 40rpx;
+  background-color: #c9c9c9;
+}
+
+.triangle {
+  position: relative;
+  float: right;
+  right: 20rpx;
+  top: 55rpx;
+  width: 0;
+  height: 0;
+  border-bottom: 17rpx solid #a3d5b7;
+  border-left: 17rpx solid transparent;
+}
+
+.content {
+  width: 710rpx;
+  height: 224rpx;
+  box-sizing: border-box;
+  border-radius: 5rpx;
+  border: 1rpx solid #ebebed;
+  background: #fff;
+   margin-top: 18rpx;
+  
+  align-items: center;
+}
+
+/* .page {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: #e9e8ed solid 1px; */
+
+/* }  */
+
+.one {
+  display: flex;
+  justify-content: space-between;
+}
+
+.oneContainer {
+  color: black;
+  position: relative;
+  border-bottom: #f3f3f3 solid 1px;
+  height: 146rpx;
+  flex: 4;
+}
+
+.twoContainer {
+  flex: 1;
+  height: 146rpx;
+  line-height: 146rpx;
+  position: relative;
+  border-bottom: #f3f3f3 solid 1px;
+}
+
+.oneContainer > image {
+  margin-top: 34rpx;
+  margin-left: 26rpx;
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.oneContainer > .transtype {
+  position: absolute;
+  top: 35rpx;
+  left: 74rpx;
+  font-size: 28rpx;
+  color: #585858;
+}
+
+.oneContainer > .transtime {
+  position: absolute;
+  top: 90rpx;
+  left: 74rpx;
+  font-size: 22rpx;
+  color: #b3b3b3;
+}
+
+.oneCanteen {
+  color: #595959;
+  font-size: 28rpx;
+  height: 74rpx;
+  line-height: 74rpx;
+  text-align: right;
+  padding-right: 30rpx;
+}
+.bottomTip {
+  color: #898c8b;
+  font-size: 20rpx;
+  text-align: center;
+  margin-top: 20rpx;
+  margin-bottom: 34rpx;
+  width: 100%;
+}

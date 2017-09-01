@@ -1,0 +1,25 @@
+.tipToast {
+  /* line-height:57rpx; */
+  width: auto;
+  display: inline-block;
+  line-height: 57rpx;
+  margin-top: 60%;
+  padding: 0 20rpx;
+  font-size: 26rpx;
+  border: 1rpx solid #c7c7c7;
+  border-radius: 10rpx;
+   color: #636363; 
+  /* color: #fff; */
+  /*color:red;*//*position: relative;*/
+  position: fixed;
+  top: 45%;
+  background: #c7c7c7;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  z-index: 9999999;
+}

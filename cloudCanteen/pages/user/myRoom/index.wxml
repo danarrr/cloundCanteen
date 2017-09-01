@@ -1,0 +1,74 @@
+<!--index.wxml-->
+<import src="/component/tipToast/tipToast.wxml" />
+<template is="tipToast" data="{{tipToastText:tipToastText,tipToastAnimationData:tipToastAnimationData}}"></template>
+<view class="nav">
+  <view class="titles">
+    <!--给选中的组件，即数组当前项的下标与selectedTitle相等的组件，定义样式名titles-selected-->
+    <block wx:for="{{titles}}">
+      <li class="title">
+        <view id="{{index}}" bindtap="bindSelectedTitle" class="titlelist {{index==selectedTitle ? 'title-selected' : ''}}">
+          {{item.chineseName}}
+        </view>
+      </li>
+    </block>
+  </view>
+</view>
+<view class="content">
+  <!--绑定事件处理函数bindchange-->
+  <swiper bindchange="bindPageChange" current='{{selectedTitle}}' style="height:{{swiperHeight}}px">
+    <block wx:for="{{titles}}" wx:for-item="title">
+      <swiper-item>
+        <view wx:if="{{title.englishName=='will'}}" class="page {{title.englishName}}">
+          <text wx:if="{{willData.data.length==0}}" class="color-97 f30">暂无数据</text>
+          <block wx:for="{{willData.data}}" wx:for-item="item">
+            <view class="roomlist">
+              <view class="leftlist">
+                <view class="listdata">
+                  <image style="height:31rpx;width:31rpx;transform:translateY(15%);margin-right:10rpx" src="/image/mine/icon_mydinner.png"></image>
+                  <span>{{item.ordersDate}}</span><span>{{item.ordersDateDesc}}</span><span>{{item.tradeName}}</span>
+                </view>
+                <view class="listdata">
+                  <image style="height:31rpx;width:27rpx;transform:translateY(15%);margin-right:10rpx" src="/image/mine/icon_address.png"></image> <span>{{item.canteenName}}</span>
+                </view>
+              </view>
+              <view class="rightlist">
+                <navigator url="myRoomDetail/roomDetail?id={{item.id}}&canteenName={{item.canteenName}}&numPeople={{item.numPeople}}&numRange={{item.numRange}}&ordersDate={{item.ordersDate}}&ordersDateDesc={{item.ordersDateDesc}}&phone={{item.phone}}&reserveName={{item.reserveName}}&roomName={{item.roomName}}&roomType={{item.roomType}}&tradeId={{item.tradeId}}&tradeName={{item.tradeName}}&type=0">
+                  <text>{{item.roomName}}</text>
+                  <image src="/image/icon-arrow.png" style="width:17rpx;height:31rpx;transform:translateY(15%);margin-left:10rpx"></image>
+                </navigator>
+              </view>
+            </view>
+          </block>
+          <!-- 加载完所有数据的提示 -->
+          <text wx:if="{{title.englishName=='will' && willData.nextPageNo==-1 && willData.data.length!=0}}" class="bottomTip">小程序只显示最近31天的过期记录\n更多数据请登录电脑端个人平台或联系食堂管理员查询！</text>
+        </view>
+
+        <view wx:if="{{title.englishName=='over'}}" class="page {{title.englishName}}">
+          <text wx:if="{{overData.data.length==0}}" class="color-97 f30">暂无数据</text>
+          <block wx:for="{{overData.data}}" wx:for-item="item">
+            <view class="roomlist">
+              <view class="leftlist">
+                <view class="listdata">
+                  <image style="height:31rpx;width:31rpx;transform:translateY(15%);margin-right:10rpx" src="/image/mine/icon_mydinner.png"></image>
+                  <span>{{item.ordersDate}}</span><span>{{item.ordersDateDesc}}</span><span>{{item.tradeName}}</span>
+                </view>
+                <view class="listdata">
+                  <image style="height:31rpx;width:27rpx;transform:translateY(15%);margin-right:10rpx" src="/image/mine/icon_address.png"></image> <span>{{item.canteenName}}</span>
+                </view>
+              </view>
+              <view class="rightlist">
+                <navigator url="myRoomDetail/roomDetail?id={{item.id}}&canteenName={{item.canteenName}}&numPeople={{item.numPeople}}&numRange={{item.numRange}}&ordersDate={{item.ordersDate}}&ordersDateDesc={{item.ordersDateDesc}}&phone={{item.phone}}&reserveName={{item.reserveName}}&roomName={{item.roomName}}&roomType={{item.roomType}}&tradeId={{item.tradeId}}&tradeName={{item.tradeName}}&type=1">
+                  <text>{{item.roomName}}</text>
+                  <image src="/image/icon-arrow.png" style="width:17rpx;height:31rpx;transform:translateY(15%);margin-left:10rpx"></image>
+                </navigator>
+              </view>
+            </view>
+          </block>
+          <!-- 加载完所有数据的提示 -->
+          <text wx:if="{{title.englishName=='over' && overData.nextPageNo==-1 && overData.data.length!=0}}" class="bottomTip">小程序只显示最近31天的过期记录\n更多数据请登录电脑端个人平台或联系食堂管理员查询！</text>
+        </view>
+      </swiper-item>
+    </block>
+
+  </swiper>
+</view>

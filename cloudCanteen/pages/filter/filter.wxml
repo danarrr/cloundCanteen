@@ -1,0 +1,29 @@
+<!--pages/filter/filter.wxml-->
+<import src="/component/tipToast/tipToast.wxml" />
+<!--【tipToast】-->
+  <template is="tipToast" data="{{tipToastText:tipToastText,tipToastAnimationData:tipToastAnimationData}}"></template>
+<view class="container ">
+
+  <!--食堂选择-->
+  <view class="canteenlist" wx:if="{{slttype}}">
+    <view class="selectbox">
+      <view wx:for="{{canteenlistDatas}}">
+        <text class="{{currentItem==index?'color-green':'color-black'}}  {{index+1==canteenlistDatas.length?'last-text':''}}" data-index="{{index}}" data-id="{{item.id}}" data-name="{{item.name}}"  bindtap="changeBindCanteen" data-type="{{fromPageType}}"> {{item.name}}</text>
+        <image wx:if="{{currItemBg==index}}" src="../../image/icon-curr.png"></image>
+      </view>
+    </view>
+    <navigator class="select-confirm" open-type="navigateBack">确认</navigator>
+  </view>
+  <!--餐次选择-->
+  <view class="meallist"  wx:if="{{!slttype}}">
+    <view class="selectbox">
+      <view wx:for="{{meallistDatas}}">
+        <text class="{{currentItem==index?'color-green':'color-black'}} {{index+1==meallistDatas.length?'last-text':''}}" data-index="{{index}}" data-id="{{item.id}}" data-name="{{item.name}}" bindtap="changeBindMeal"> {{item.name}}</text>
+        <image wx:if="{{currItemBg==index}}" src="../../image/icon-curr.png"></image>
+      </view>
+    </view>
+    <navigator class="select-confirm" open-type="navigateBack">确认</navigator>
+    <view class="classname" bindtap="confirmOption"></view>
+  </view>
+</view>
+  

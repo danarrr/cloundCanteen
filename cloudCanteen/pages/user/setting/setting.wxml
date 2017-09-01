@@ -1,0 +1,66 @@
+<!--pages/user/setting/setting.wxml-->
+<import src="../../../component/altBox/altBox.wxml" />
+<import src="/component/tipToast/tipToast.wxml" />
+<template is="tipToast" data="{{tipToastText:tipToastText,tipToastAnimationData:tipToastAnimationData}}"></template>
+<template is="altBox" data="{{altBoxData:altBoxData}}" wx:if="{{showAltBox}}"></template>
+<view class="{{BGopacity== true? 'bg-opacity' : ''}}"> </view>
+
+<view class="container">
+  <view class="page-index" wx:if="{{showType=='Index'}}">
+    <view class="selectbox">
+      <view bindtap="toShow" data-type="Etc">
+        <text  data-type="Etc"> 我要挂失</text>
+        <image  data-type="Etc" src="/image/mine/btn1.png"></image>
+      </view>
+      <view bindtap="toShow" data-type="ChangePwd">
+        <text data-type="ChangePwd"> 修改密码</text>
+        <image data-type="ChangePwd" src="/image/mine/btn1.png"></image>
+      </view>
+    </view>
+
+    <view class="selectbox">
+      <view bindtap="toShow" data-type="About">
+        <text data-type="About"> 关于</text>
+        <image data-type="About" src="/image/mine/btn1.png"></image>
+      </view>
+    </view>
+    <button class="btn-logout" bindtap="signOut">退出登录</button>
+  </view>
+  <!-- 挂失 -->
+  <view class="page-etc" wx:if="{{showType =='Etc'}}">
+
+    <view>
+      <text class="color-40">是否确认挂失饭卡？ </text>
+      <text class="color-97">挂失后如需解除挂失，请联系食堂管理员！</text>
+    </view>
+    <button class="color-red" bindtap="loss">确定</button>
+    <button class="color-97" bindtap="cancel" style="margin-top:16rpx">取消</button>
+  </view>
+  <!-- 关于 -->
+  <view class="page-about" wx:if="{{showType=='About'}}">
+    <image src="/image/logo.png"></image>
+    <text class="f30">版本1.0.1</text>
+    <text class="f24 " style="display:block; margin-top: 733rpx;">Copyright@2017</text>
+    <text class="f24 ">广州食为天信息有限公司 版权所有</text>
+  </view>
+  <!-- 修改密码 -->
+  <view class="page-changePwd" wx:if="{{showType=='ChangePwd'}}">
+    <!-- <view class="page-changePwd"> -->
+    <view class="oldpwd">
+      <text>旧密码</text>
+      <input type="text" password="true" placeholder="请输入旧密码" bindblur="oldPwd"></input>
+    </view>
+    <view class="color-red f24" wx:if="{{oldpwdError}}">密码不正确！</view>
+    <view>
+      <text>新密码</text>
+      <input type="text" password="true" placeholder="请输入新密码" bindblur="newPwd"></input>
+    </view>
+    <view>
+      <text>确认密码</text>
+      <input type="text" password="true" placeholder="请再次输入新密码" bindblur="againNewPwd"></input>
+    </view>
+    <view class="color-red f24" wx:if="{{newpwdError}}">两次密码不一样！</view>
+    <button class="btn-confirm" bindtap="confirmPwd">确定</button>
+    <button class="btn-cancel" bindtap="cancel">取消</button>
+  </view>
+</view>

@@ -1,0 +1,34 @@
+<!--pages/mealorder/pay/pay.wxml-->
+<import src="../../../component/altBox/altBox.wxml" />
+<import src="/component/tipToast/tipToast.wxml" />
+<template is="tipToast" data="{{tipToastText:tipToastText,tipToastAnimationData:tipToastAnimationData}}"></template>
+<template is="altBox" data="{{altBoxData:altBoxData}}" wx:if="{{showAltBox}}"></template>
+<view class="contain" >
+  <view class="bg-opacity " wx:if="{{showAltBox}}">
+  </view>
+  <view class="pay"  >
+    <view class="paymoney">
+      <text class="f30">金额合计</text>
+      <text class="f58">￥{{cartMoney}}</text>
+      <text class="f30" wx:if="{{!showClock}}">支付剩余时间{{clock}}</text>
+      <text class="f30" wx:if="{{showClock}}">本订单已过期！</text>
+      <image src="/image/bg-topay.png"></image>
+    </view>
+    <view class="payway">
+      <text style="line-height: 83rpx;color:#000">支付方式</text>
+      <radio-group class="radio-group" bindchange="radioChange">
+        <label class="radio" wx:for="{{items}}">
+          <view>
+            <image src="/image/{{item.pic}}.png"></image>
+            <text style="flex:5;margin-left:27rpx">{{item.value}}</text>
+            <radio style="flex:1" value="{{item.name}}" checked="{{item.checked}}" />
+          </view>
+        </label>
+      </radio-group>
+
+
+    </view>
+<button bindtap="pay"  class="btn-pay" formType="submit" disabled="{{btnToPayDisable}}">确认支付￥{{cartMoney}}</button> 
+  </view>
+  
+</view>

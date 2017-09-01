@@ -1,0 +1,3 @@
+<template name="tipToast">
+  <view class="tipToast" animation="{{tipToastAnimationData}}">{{tipToastText}}</view>
+</template>

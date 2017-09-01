@@ -1,0 +1,9 @@
+<!--pages/mealorder/pay/payok/payok.wxml-->
+<view class="page-paysuccess">
+  <view class="paysuccess">
+    <image src="/image/paysuccess.png" style="width:203rpx;height:208rpx"></image>
+    <text>订餐成功！</text>
+    <navigator open-type="redirect" url="/pages/user/index/index" class="btn-revieworder">查看订单</navigator>
+    <navigator open-type="redirect" url="/pages/mealorder/index/index" class="btn-confirm">确定</navigator>
+  </view>
+</view>

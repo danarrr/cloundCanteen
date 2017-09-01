@@ -1,0 +1,47 @@
+/* component/altbox/altbox.wxss */
+.box-alter{
+  width: 502rpx;
+  border-top:13rpx solid #19b34e;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  line-height: 45rpx;
+  margin:0 auto;
+  top:50%;
+  left:50%;
+  transform: translate(-251rpx,-50%);
+  position:fixed;
+  display: block;
+  z-index:9999;
+  background: #fff;
+  text-align:center;
+
+}
+.box-alter .content{
+  border-bottom:1rpx solid #c7c7c7;
+  padding:30rpx 40rpx;
+  box-sizing: border-box
+}
+.box-alter text{
+  color:#424242;
+}
+.box-alter input[type="text"]{
+  line-height: 58rpx;
+  height: 58rpx;
+  border:1rpx solid #c1c1c1;
+}
+.box-alter .btn{
+  display: flex;
+  justify-content: space-between;
+   padding: 20rpx 0;
+}
+.box-alter .btn view{
+ 
+  font-size:28rpx;
+  line-height: 42rpx;
+  width:50%;
+ 
+}
+.box-alter .btn .btn-confirm{
+   border-left:1rpx solid #c7c7c7;
+   color:#1bb24c;
+}

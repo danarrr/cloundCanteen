@@ -1,0 +1,49 @@
+<!--pages/mealorder/search/search.wxml-->
+<!--搜索页-->
+<import src="/component/num/num.wxml" />
+<view class="container">
+  <view class="search-page">
+    <form class="nav-srh" bindsubmit="formSubmit" bindreset="formReset">
+      <image catchtap="catchSearch" src="/image/icon-srch.png"></image>
+      <input type="text" class="" value="{{setSrhVal}}" bindconfirm="bindSearch" placeholder="搜索" focus confirm-type="search" bindinput="bindInput" />
+      <image bindtap="clearInput" class="clear-input {{hasTextClass}}" src="/image/icon-close.png"></image>
+    </form>
+    
+    <view class="hot">当前搜索：{{canteenListTit.canteenName}},{{date}},{{mealListTit.mealTit}}</view>
+    <view class="history" wx:if="{{!showSrhContent}}">
+      <view class="tit">
+        <text class="color-59">搜索历史</text>
+        <view bindtap="dltHistory">
+          <image src="/image/icon-delete.png"></image>
+          <text class="color-97">清除历史</text>
+        </view>
+      </view>
+      <view class="keyword">
+        <text wx:for="{{history}}" bindtap="setSrhVal" data-val="{{item}}">{{item}}</text>
+      </view>
+    </view>
+    <view class="content-srh" wx:if="{{showSrhContent}}">
+      <view class="tit">
+        <text>搜索结果</text>
+      </view>
+      <view class="result-empty" wx:if="{{noResult}}">
+        <image src="/image/noresult.png"></image>
+        <text>抱歉未搜索到该菜品，试试其他食堂或者餐次吧~</text>
+      </view>
+      <block wx:for="{{srhList}}" class="nav-right" wx:key="">
+        <view class="nav-right-items " data-index="{{index}}" data-id="{{item}}">
+          <!-- <image class="nav-right-good" src="http://192.168.4.246:8080/{{item.picUrl}}" /> -->
+          <image wx:if="{{item.picUrl}}" class="nav-right-good" src="{{item.picUrl}}" />
+          <image wx:if="{{!item.picUrl}}" class="nav-right-good" src="/image/default.png" />
+          <view class="nav-right-itembox ">
+            <view class="nav-right-tit">{{item.name}}{{item.srhkey}}</view>
+            <!-- <view class="nav-right-price">￥{{item.price/discount}} -->
+               <view class="nav-right-price">￥{{item.discountPrice}} 
+              <template data="{{item,discount,deliveryornot,moneylimit}}" is="numBtn" />
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

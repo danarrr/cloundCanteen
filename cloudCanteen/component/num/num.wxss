@@ -1,0 +1,24 @@
+/* pages/component/num.wxss */
+
+.btn-num {
+  /* width: 40%; */
+  float: right;
+  line-height: 80rpx;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.btn-num image {
+  width: 35rpx;
+  height: 35rpx;
+  overflow: hidden;
+}
+
+.btn-num text {
+  text-align: center;
+  width: 50rpx;
+  transform: translateY(1rpx);
+  overflow: auto;
+}

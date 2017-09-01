@@ -1,0 +1,237 @@
+/* pages/user/myMealOrder/myMealOrder.wxss */
+@import "/component/tipToast/tipToast.wxss";
+
+.nav {
+  width: 100%;
+  border-bottom: 1rpx solid #d9d9d9;
+}
+
+.titles {
+  height: 96rpx;
+  width: 750rpx;
+  box-sizing: border-box;
+  font-size: 30rpx;
+  color: #383838;
+  background: #fff;
+  display: flex;
+  justify-content: space-around;
+  flex-grow: 1;
+  padding-top: 17rpx;
+  padding-bottom: 17rpx;
+  position: relative;
+}
+
+.titles > .title:not(:last-of-type) {
+  /*除最后一个title以外的标签添加右边框*/
+  border-right: 1px solid #d9d9d9;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.nav-indicator {
+  height: 2px;
+  background: #1bb14f;
+}
+
+.content {
+  background: #f7f8fc;
+  height:auto;
+}
+
+.page {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: #e9e8ed solid 1px; */
+}
+
+.willEat, .ate, .overdue {
+  background: #f7f8fc;
+}
+
+.tip {
+  color: #fe693a;
+  font-size: 20rpx;
+  margin-top: 14rpx;
+  margin-bottom: 14rpx;
+  text-align: right;
+  margin-right: 24rpx;
+  align-self: flex-end;
+}
+
+.space {
+  color: transparent;
+  font-size: 18rpx;
+}
+
+.bottomTip {
+  color: #898c8b;
+  font-size: 20rpx;
+  text-align: center;
+  margin-top: 20rpx;
+  margin-bottom: 34rpx;
+  width: 100%;
+}
+
+.box {
+  width: 710rpx;
+  /* height: 224rpx; */
+  box-sizing: border-box;
+  border-radius: 5rpx;
+  border: 1rpx solid #ebebed;
+  background: #fff;
+  margin-top: 18rpx;
+  align-items: center;
+}
+
+.one {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+
+.oneContainer {
+  color: black;
+  position: relative;
+  /* border-bottom: #f3f3f3 solid 1px; */
+  height: 145rpx;
+  flex: 4;
+}
+
+.twoContainer {
+  flex: 0.8;
+  height: 144rpx;
+  line-height: 144rpx;
+  position: relative;
+  /* border-bottom: #f3f3f3 solid 1px; */
+}
+
+.oneContainer > image {
+  margin-top: 34rpx;
+  margin-left: 26rpx;
+  /* width: 30rpx;
+  height: 30rpx; */
+}
+
+.oneContainer > .date {
+  position: absolute;
+  top:20rpx;
+  /* left: 74rpx; */
+  font-size: 28rpx;
+  color: #585858;
+}
+
+.oneContainer > .tradeName {
+  position: absolute;
+  top: 90rpx;
+  /* left: 74rpx; */
+  font-size: 26rpx;
+  color: #6e6e6e;
+}
+
+.oneCanteen {
+  /* color: #595959; */
+  font-size: 28rpx;
+  height: 74rpx;
+  line-height: 74rpx;
+  text-align: right;
+  padding-right: 30rpx;
+}
+
+/* 
+.one {
+  width: 710rpx;
+   height: 224rpx; 
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid #ebebed;
+  background: #fff;
+  margin-bottom: 18rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.oneContainer {
+  color: black;
+  position: relative;
+  border-bottom: #f3f3f3 solid 1px;
+  height: 146rpx;
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.oneContainer > image {
+  margin-top: 34rpx;
+  margin-left: 26rpx; */
+
+/* width: 30rpx;
+  height: 30rpx; */
+
+/* }
+
+.oneContainer > .date {
+  position: absolute;
+  top: 32rpx;
+  left: 74rpx;
+  font-size: 25rpx;
+  color: #585858;
+}
+
+.oneContainer > .tradeName {
+  position: absolute;
+  top: 96rpx;
+  left: 74rpx;
+  font-size: 25rpx;
+  color: #6e6e6e;
+}
+
+.oneCanteen {
+  color: #40ba69;
+  font-size: 28rpx;
+  height: 74rpx;
+  line-height: 74rpx;
+  text-align: right;
+  padding-right: 30rpx;
+}
+*/
+
+.twoContainer {
+  position: relative;
+  height: 146rpx;
+  line-height: 40rpx;
+  padding: 40rpx 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  font-size: 25rpx;
+  color: #585858;
+}
+
+.threeContainer {
+  color: #626262;
+  position: relative;
+  border-bottom: #f3f3f3 solid 1px;
+  height: 146rpx;
+  line-height: 146rpx;
+  flex: 0.2;
+  font-size: 30rpx;
+}
+
+.threeContainer image {
+  width: 15rpx;
+  height: 28rpx;
+  margin-left: 15rpx;
+  transform: translateY(5rpx);
+}

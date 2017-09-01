@@ -1,0 +1,46 @@
+/* pages/mealorder/pay/payok/payok.wxss */
+.paysuccess image {
+  display: block;
+  margin: 0 auto;
+  padding-top: 150rpx;
+}
+
+.paysuccess {
+  width: 100%;
+}
+
+.paysuccess text {
+  display: block;
+  color: #707070;
+  font-size: 33rpx;
+  margin-top: 20rpx;
+  margin-bottom: 50rpx;
+  text-align: center
+}
+
+.paysuccess .btn-revieworder {
+  width: 240rpx;
+  height: 62rpx;
+  line-height: 62rpx;
+  text-align: center;
+  color: #888;
+  border: 1rpx solid #c7c7c7;
+  background: #fff;
+  font-size: 30rpx;
+  border-radius: 15rpx;
+  margin: 0 auto;
+}
+
+.paysuccess .btn-confirm {
+  width: 678rpx;
+  height: 87rpx;
+  text-align: center;
+  line-height: 87rpx;
+  background: #1bb150;
+  color: #fff;
+  font-size: 30rpx;
+  border-radius: 15rpx;
+  margin-top: 550rpx;
+  margin-left: -305rpx;
+  transform: translateX(50%);
+}

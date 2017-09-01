@@ -1,0 +1,35 @@
+<!--index.wxml-->
+<import src="/component/tabBar/tabBar.wxml" />
+<import src="/component/tipToast/tipToast.wxml" />
+<template is="tipToast" data="{{tipToastText:tipToastText,tipToastAnimationData:tipToastAnimationData}}"></template>
+<view class="container" class="mealorder">
+
+  <image class="banner" src="/image/banner.png"></image>
+  <view class="imagebox">
+    <image class="picleft" src="/image/index/picl.png"></image>
+    <image class="picright" src="/image/index/picr.png"></image>
+  </view>
+  <view class="choicebox">
+    <view>
+      <navigator url="../../filter/filter" bindtap="showFilter" data-type="canteen">
+        <text>{{canteenListTit}}</text>
+        <image src="/image/icon-arrow.png"></image>
+      </navigator>
+    </view>
+    <view>
+      <!--<navigator url="/component/calendar/calendar" bindtap="showFilter" data-type="canteen">-->
+      <navigator url="/pages/calendar/calendar?type=mealorder">
+        <text>{{date}}</text>
+        <image src="/image/icon-arrow.png"></image>
+      </navigator>
+    </view>
+    <view>
+      <navigator url="../../filter/filter" bindtap="showFilter" data-type="meal">
+        <text>{{mealListTit}}</text>
+        <image src="/image/icon-arrow.png"></image>
+      </navigator>
+    </view>
+    <button bindtap="toGoods">开始订餐</button>
+  </view>
+  <template data="{{tabBar: tabBar}}" is="tabBar" />
+</view>

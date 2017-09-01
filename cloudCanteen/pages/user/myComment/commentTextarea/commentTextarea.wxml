@@ -1,0 +1,8 @@
+<!--pages/user/myComment/commentTextarea/commentTextarea.wxml-->
+<view class="page-container">
+  <view class="-words">
+    <textarea placeholder="点此添加个人建议" value="{{words}}" maxlength="50" bindinput="wordBindInput"></textarea>
+    <text>{{curWordNum}}/50</text>
+  </view>
+  <button bindtap="confirm">确定</button>
+</view>

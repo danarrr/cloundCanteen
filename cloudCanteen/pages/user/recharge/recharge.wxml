@@ -1,0 +1,18 @@
+<!--pages/user/recharge/recharge.wxml-->
+<view class="container recharge">
+  <view class="box-info rechargeid">
+    <view class="flex-between" style="line-height:106rpx;height:106rpx;" > 充值用户编码：
+     <input type="text" bindblur="bindCardId"/>
+    </view>
+    <view style="line-height:59rpx;height:59rpx;" class="color-green">
+      <image wx:if="{{name}}" style="width:28rpx;height:28rpx;transform:translateY(20%);margin-right:10rpx;" src="/image/mine/icon-!.png"></image>
+      <text wx:if="{{name}}">姓名：{{name}}; 用户编号：{{usrid}}</text>
+      </view>
+  </view>
+  <view class="box-info rechargemoney">
+    <view style="line-height:76rpx;height:76rpx;" > 充值金额：</view>
+    <view class="flex-between" style="line-height:155rpx;height:155rpx;font-size:40rpx;">￥<input type="text" bindblur="bindRechargeMoney" placeholder="输入充值金额" /></view>
+  </view>
+
+  <button type="primary" bindtap="wechatToRecharge">微信支付</button>
+</view>

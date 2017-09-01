@@ -1,0 +1,118 @@
+@import "/component/tipToast/tipToast.wxss"; 
+view {
+  font-family: "Helvetica Neue", Helvetica, "Microsoft YaHei", STHeiTi, sans-serif;
+  line-height: 42rpx;
+  box-sizing: border-box;
+}
+
+.week-title {
+  color: #3b3b3b;
+  display: flex;
+  width: 100%;
+  height: 46rpx;
+  z-index: 2;
+  font-size: 17rpx;
+  position: fixed;
+  padding: 0 12px;
+  text-align: center;
+  border-bottom: 1px #ddd solid;
+}
+
+.weekend {
+  color: #b3b3b3;
+}
+
+.week-title view {
+  flex: 1;
+  line-height: 46rpx;
+}
+
+scroll-view {
+  display: block;
+  box-sizing: border-box;
+  padding-top: 36px;
+  height: 1070rpx;
+}
+
+.months {
+  overflow: hidden;
+}
+
+.month-title {
+  margin-top: 10rpx;
+  margin-bottom: -15rpx;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  color: #000;
+  font-size: 25rpx;
+}
+
+.month {
+  height: auto;
+  padding: 0 12px;
+}
+
+.days {
+  width: 14%;
+  height: 96rpx;
+  text-align: center;
+  float: left;
+}
+
+.day {
+  height: 96rpx;
+  line-height: 96rpx;
+  color: #b2b2b2;
+  /*border-top: 1px #e4e4e4 solid;*/
+  font-size: 25rpx;
+}
+
+.buttonArea {
+  height: 137rpx;
+  border-top: #e2e2e2 1px solid;
+}
+
+.button {
+  background-color: #1bb150;
+  border-radius: 10rpx;
+  line-height: 88rpx;
+  color: #fff;
+  margin: 0 auto;
+  vertical-align: middle;
+  height: 88rpx;
+  text-align: center;
+  font-size: 28rpx;
+  width: 678rpx;
+  /*垂直居中*/
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/*
+状态，有：default默认、selectable可选、today今天、selected已选
+*/
+
+.default {
+  color: #9e9e9e;
+}
+
+.selectable {
+  color: #000;
+}
+
+.today {
+  color: #1bb150;
+}
+
+.selected {
+  background-color: #1bb150;
+  color: #d53621;
+}
+
+.active {
+  background: #1bb150;
+  border-radius: 50%;
+  color: #fff;
+}

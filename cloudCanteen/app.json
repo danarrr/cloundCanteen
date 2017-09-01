@@ -1,0 +1,35 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/mealorder/index/index",
+    "pages/reportDinner/index/index",
+    "pages/mealorder/goods/index",
+    "pages/mealorder/search/search",
+    "pages/mealorder/confirm/confirm",
+    "pages/mealorder/pay/pay",
+    "pages/mealorder/pay/payok/payok",
+    "pages/filter/filter",
+    "pages/room/room/index",
+    "pages/room/order/index",
+    "pages/user/index/index",
+    "pages/user/myMealOrder/myMealOrder",
+    "pages/user/myMealOrder/detailsPage/detailsPage",
+    "pages/user/myDinner/myDinner",
+    "pages/user/setting/setting",
+    "pages/user/myTransactionFlow/myTransactionFlow",
+    "pages/user/myRoom/index",
+    "pages/user/myRoom/myRoomDetail/roomDetail",   
+    "pages/user/myComment/myComment",
+    "pages/calendar/calendar",
+    "pages/user/myComment/commentDetail/commentDetail",
+    "pages/user/myComment/commentTextarea/commentTextarea",
+    "pages/user/recharge/recharge",
+    "pages/user/transferred/transferred"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#343338",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "white"
+  }
+}
